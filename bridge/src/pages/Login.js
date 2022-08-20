@@ -1,17 +1,19 @@
 
 const Login = () => {
   return (
-    <div>
-      <div>
-        <label htmlFor="school">学校名</label>
-        <input type="text" />
-      </div>
-      <div>
-        <label htmlFor="pass">パスワード</label>
-        <input type="text" />
-      </div>
-      <button>ログイン</button>
-    </div>
+    <>
+      <ul>
+        <li>
+          <label htmlFor="school">学校名</label>
+          <input type="text" />
+        </li>
+        <li>
+          <label htmlFor="pass">パスワード</label>
+          <input type="password" />
+        </li>
+      </ul>
+      <input type="button" value="ログイン" />
+    </>
   )
 }
 
