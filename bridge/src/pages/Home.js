@@ -1,5 +1,14 @@
+import { useContext } from 'react'
+import { Redirect } from 'react-router-dom'
+import { AppContext } from '../contexts/AppContext'
 
 const Home = () => {
+  const { isLogin } = useContext(AppContext)
+  
+  if (!isLogin) {
+    return <Redirect to="/login" />
+  }
+
   return (
     <>
       <div>相手とのやりとり</div>
