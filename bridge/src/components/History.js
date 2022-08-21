@@ -1,3 +1,4 @@
+import {List, ListItem, Text} from '@chakra-ui/react'
 
 const History = () => {
 
@@ -9,16 +10,16 @@ const History = () => {
   
   return (
     <>
-      <p>取引履歴</p>
-      <ul>
+      <Text fontSize="xl">取引履歴</Text>
+      <List>
         {dealList.map((val) => (
-          <li>
-            <p>取引相手：{val["partner"]}</p>
-            <p>種類：{val["type"]}</p>
-            <p>個数：{val["num"]}</p>
-          </li>
+          <ListItem>
+            <Text fontSize="md">取引相手：{val["partner"]}</Text>
+            <Text fontSize="md">種類：{val["type"]}</Text>
+            <Text fontSize="md">個数：{val["num"]}</Text>
+          </ListItem>
         ))}
-      </ul>
+      </List>
     </>
   )
 }

@@ -1,6 +1,7 @@
 import { useContext, useState } from "react"
 import { Redirect } from "react-router-dom"
 import { AppContext } from "../contexts/AppContext"
+import { Input, List, ListItem, Text } from "@chakra-ui/react"
 
 const Signup = () => {
   const {
@@ -42,61 +43,61 @@ const Signup = () => {
 
   return (
     <>
-      <input
+      <Input
         id="type1"
         type="radio"
         name="userType"
         defaultChecked
         onClick={() => handleIsSchool(true)}
       />
-      <label htmlFor="type1">学校関係者</label>
+      <Text>学校関係者</Text>
       <br />
-      <input
+      <Input
         id="type2"
         type="radio"
         name="userType"
         onClick={() => handleIsSchool(false)}
       />
-      <label htmlFor="type2">フードバンク運営</label>
-      <ul>
-        <li>
-          <label htmlFor="group">{isSchool ? "学校名" : "団体名"}</label>
-          <input
+      <Text>フードバンク運営</Text>
+      <List>
+        <ListItem>
+          <Text>{isSchool ? "学校名" : "団体名"}</Text>
+          <Input
             type="text"
             value={userName}
             onChange={handleUserName}
           />
-        </li>
+        </ListItem>
         {isSchool ? <></> : (
-          <li>
-            <label htmlFor="address">住所</label>
-            <input
+          <ListItem>
+            <Text>住所</Text>
+            <Input
               type="text"
               value={address}
               onChange={handleAdress}
             />
-          </li>
+          </ListItem>
         )}
-        <li>
-          <label htmlFor="phone">電話番号</label>
-          <input
+        <ListItem>
+          <Text>電話番号</Text>
+          <Input
             type="tel"
             value={phone}
             onChange={handlePhone}
           />
-        </li>
-        <li>
-          <label htmlFor="pass">パスワード</label>
-          <input
+        </ListItem>
+        <ListItem>
+          <Text>パスワード</Text>
+          <Input
             type="password"
             value={pass}
             onChange={handlePass}
           />
-        </li>
-      </ul>
-      <input type="button" value="登録" />
+        </ListItem>
+      </List>
+      <Input type="button" value="登録" />
       <br />
-      <input type="button" value="すでにアカウントをお持ちの方" onClick={() => setIsSignup(!isSignup)} />
+      <Input type="button" value="すでにアカウントをお持ちの方" onClick={() => setIsSignup(!isSignup)} />
     </>
   )
 }

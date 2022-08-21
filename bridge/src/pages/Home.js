@@ -5,13 +5,14 @@ import History from '../components/History'
 import Message from '../components/Message'
 import NearClient from '../components/NearClients'
 import { AppContext } from '../contexts/AppContext'
+import { Input } from '@chakra-ui/react'
 
 const Home = () => {
-  // const { isLogin } = useContext(AppContext)
+  const { isLogin } = useContext(AppContext)
 
-  // if (!isLogin) {
-  //   return <Redirect to="/login" />
-  // }
+  if (!isLogin) {
+    return <Redirect to="/login" />
+  }
 
   return (
     <>
@@ -23,7 +24,7 @@ const Home = () => {
       <br />
       <EditBio />
       <br />
-      <input type="button" value="商品登録へ" />
+      <Input type="button" value="商品登録へ" />
     </>
   )
 }

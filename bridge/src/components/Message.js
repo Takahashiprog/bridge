@@ -1,8 +1,12 @@
+import { Text } from "@chakra-ui/react"
 
 const Message = () => {
+
+  // chat-ui-kit-react??
+
   return (
     <>
-      <p>message</p>
+      <Text fontSize="xl">message</Text>
     </>
   )
 }

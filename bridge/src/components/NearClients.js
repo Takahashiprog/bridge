@@ -1,3 +1,4 @@
+import { List, ListItem, Text } from "@chakra-ui/react"
 
 const NearClient = () => {
 
@@ -9,15 +10,15 @@ const NearClient = () => {
 
   return (
     <>
-      <p>近くの取引先一覧</p>
-      <ul>
+      <Text fontSize="xl">近くの取引先一覧</Text>
+      <List>
         {clientList.map((val) => (
-          <li>
+          <ListItem>
             <p>名称：{val["name"]}</p>
             <p>所在地：{val["address"]}</p>
-          </li>
+          </ListItem>
         ))}
-      </ul>
+      </List>
     </>
   )
 }

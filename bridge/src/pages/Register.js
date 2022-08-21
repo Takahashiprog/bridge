@@ -1,3 +1,4 @@
+import { Input } from "@chakra-ui/react"
 import { useState } from "react"
 
 const Register = () => {
@@ -36,17 +37,17 @@ const Register = () => {
     <>
       {food.map((val, i) =>
         <>
-          <input
+          <Input
             type="text"
             value={val["type"]}
             onChange={(e) => handleChangeFood(e, i)}
           />
-          <input
+          <Input
             type="number"
             value={val["num"]}
             onChange={(e) => handleNum(e, i)}
           />
-          <input
+          <Input
             type="button"
             value="delete"
             onClick={(e) => handleDeleteFood(e, i)}
@@ -54,13 +55,13 @@ const Register = () => {
           <br />
         </>
       )}
-      <input
+      <Input
         type="button"
         value=" + "
         onClick={handleAddFood}
       />
       <br />
-      <input
+      <Input
         type="button"
         value="登録"
       />
