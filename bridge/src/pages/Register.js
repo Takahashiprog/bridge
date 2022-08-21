@@ -1,22 +1,29 @@
 import { useState } from "react"
 
 const Register = () => {
-  const [food, setFood] = useState([["apple", 1], ["orange", 2]])
+  const [food, setFood] = useState([
+    { "type": "apple", "num": 1 },
+    { "type": "orange", "num": 1 },
+  ])
 
   const handleChangeFood = (e, index) => {
     setFood(
-      food.map((val, i) => [(index === i ? e.target.value : val[0]), val[1]])
+      food.map((val, i) => (index === i ?
+        { "type": e.target.value, "num": val["num"] } : val
+      ))
     )
   }
 
   const handleNum = (e, index) => {
     setFood(
-      food.map((val, i) => [val[0], (index === i ? e.target.value : val[1])])
+      food.map((val, i) => (index === i ?
+        { "type": val["type"], "num": e.target.value } : val
+      ))
     )
   }
 
   const handleAddFood = () => {
-    setFood([...food, ["", 0]])
+    setFood([...food, { "type": "", "num": 1 }])
   }
 
   const handleDeleteFood = (e, index) => {
@@ -29,15 +36,34 @@ const Register = () => {
     <>
       {food.map((val, i) =>
         <>
-          <input type="text" value={val[0]} onChange={(e) => handleChangeFood(e, i)} />
-          <input type="number" value={val[1]} onChange={(e) => handleNum(e, i)} />
-          <input type="button" value="delete" onClick={(e) => handleDeleteFood(e, i)} />
+          <input
+            type="text"
+            value={val["type"]}
+            onChange={(e) => handleChangeFood(e, i)}
+          />
+          <input
+            type="number"
+            value={val["num"]}
+            onChange={(e) => handleNum(e, i)}
+          />
+          <input
+            type="button"
+            value="delete"
+            onClick={(e) => handleDeleteFood(e, i)}
+          />
+          <br />
         </>
       )}
+      <input
+        type="button"
+        value=" + "
+        onClick={handleAddFood}
+      />
       <br />
-      <input type="button" value=" + " onClick={handleAddFood} />
-      <br />
-      <input type="button" value="登録" />
+      <input
+        type="button"
+        value="登録"
+      />
     </>
   )
 }

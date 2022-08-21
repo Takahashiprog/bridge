@@ -3,7 +3,13 @@ import { Redirect } from "react-router-dom"
 import { AppContext } from "../contexts/AppContext"
 
 const Login = () => {
-  const { isSignup, setIsSignup, isSchool, setIsSchool } = useContext(AppContext)
+  const {
+    isSignup,
+    setIsSignup,
+    isSchool,
+    setIsSchool
+  } = useContext(AppContext)
+
   const [userName, setUserName] = useState("")
   const [pass, setPass] = useState("")
 
