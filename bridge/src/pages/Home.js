@@ -16,9 +16,13 @@ const Home = () => {
   return (
     <>
       <Message />
+      <br />
       <NearClient />
+      <br />
       <History />
+      <br />
       <EditBio />
+      <br />
       <input type="button" value="商品登録へ" />
     </>
   )
