@@ -1,8 +1,9 @@
-import { Box, Heading, Text, VStack } from "@chakra-ui/react"
+import { Box, Heading, Text } from "@chakra-ui/react"
 
 const NearClient = () => {
 
-  // TODO clientListの取得
+  // TODO get clientList
+
   const clientList = [
     { "name": "NPO JAPAN", "address": "東京" },
     { "name": "foodbank sapporo", "address": "札幌" },

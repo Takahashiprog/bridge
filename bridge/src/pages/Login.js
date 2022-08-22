@@ -8,11 +8,21 @@ const Login = () => {
     isSignup,
     setIsSignup,
     isSchool,
-    setIsSchool
+    setIsSchool,
+    isLogin,
+    setIsLogin,
   } = useContext(AppContext)
-
+  
   const [userName, setUserName] = useState("")
   const [pass, setPass] = useState("")
+
+  if (!isSignup) {
+    return <Redirect to="/signup" />
+  }
+
+  if(isLogin){
+    return <Redirect to="/" />
+  }
 
   const handleRadio = () => {
     setIsSchool(!isSchool)
@@ -27,8 +37,11 @@ const Login = () => {
     setPass(e.target.value)
   }
 
-  if (!isSignup) {
-    return <Redirect to="/signup" />
+  const handleEndLogin = () => {
+
+    // check pass
+
+    setIsLogin(true)
   }
 
   return (
@@ -57,7 +70,8 @@ const Login = () => {
             onChange={handlePass}
           />
         </Box>
-        <Button 
+        <Button
+          onClick={handleEndLogin}
           colorScheme="blue" 
           width="200px"
         >ログイン</Button>

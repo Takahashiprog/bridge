@@ -8,7 +8,9 @@ const Signup = () => {
     isSignup,
     setIsSignup,
     isSchool,
-    setIsSchool
+    setIsSchool,
+    isLogin,
+    setIsLogin,
   } = useContext(AppContext)
 
   const [userName, setUserName] = useState("")
@@ -18,6 +20,10 @@ const Signup = () => {
 
   if (isSignup) {
     return <Redirect to="/login" />
+  }
+
+  if(isLogin){
+    return <Redirect to="/" />
   }
 
   const handleRadio = () => {
@@ -38,6 +44,14 @@ const Signup = () => {
 
   const handlePass = (e) => {
     setPass(e.target.value)
+  }
+
+  const handleEndSignup = () => {
+
+    // TODO post info
+
+    setIsSignup(true)
+    setIsLogin(true)
   }
 
   return (
@@ -84,11 +98,12 @@ const Signup = () => {
             onChange={handlePass}
           />
         </Box>
-        <Button 
+        <Button
+          onClick={handleEndSignup}
           colorScheme="blue"
           width="200px"
         >登録</Button>
-        <Button 
+        <Button
           onClick={() => setIsSignup(!isSignup)}
           width="200px"
         >ログイン画面へ</Button>

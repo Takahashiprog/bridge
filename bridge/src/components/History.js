@@ -2,7 +2,8 @@ import { Text, Heading, Box } from '@chakra-ui/react'
 
 const History = () => {
 
-  // TODO dealListの取得
+  // TODO get dealList
+
   const dealList = [
     { "partner": "NPO JAPAN", "type": "apple", "num": 1 },
     { "partner": "foodbank sapporo", "type": "orange", "num": 100 },

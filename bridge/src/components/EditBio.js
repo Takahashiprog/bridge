@@ -8,7 +8,8 @@ const EditBio = () => {
     isSchool
   } = useContext(AppContext)
 
-  // TODO bioをpost
+  // TODO get bio
+  
   const myBio = {
     "name": "NPO JAPAN",
     "address": "東京"
@@ -22,7 +23,9 @@ const EditBio = () => {
   }
 
   const handleSaveBio = () => {
-    // post bio
+
+    // TODO post bio
+
   }
 
   return (

@@ -1,11 +1,21 @@
-import { Button, Input, HStack, VStack, Heading } from "@chakra-ui/react"
-import { useState } from "react"
+import { Button, Input, HStack, VStack, Heading, Box, Text } from "@chakra-ui/react"
+import { useContext, useState } from "react"
+import { Redirect } from "react-router-dom"
+import { AppContext } from "../contexts/AppContext"
 
 const Register = () => {
+  const { isRegister, setIsRegister, isLogin } = useContext(AppContext)
   const [food, setFood] = useState([
-    { "type": "apple", "num": 1 },
-    { "type": "orange", "num": 1 },
+    { "type": "", "num": 1 },
   ])
+
+  if (!isRegister) {
+    return <Redirect to="/" />
+  }
+
+  if (!isLogin) {
+    return <Redirect to="/login" />
+  }
 
   const handleChangeFood = (e, index) => {
     setFood(
@@ -28,9 +38,17 @@ const Register = () => {
   }
 
   const handleDeleteFood = (e, index) => {
+    if (food.length === 1) return
     setFood(
       food.filter((_, i) => (i !== index))
     )
+  }
+
+  const handleEndRegister = () => {
+
+    // TODO post info
+
+    setIsRegister(false)
   }
 
   return (
@@ -40,17 +58,23 @@ const Register = () => {
         {food.map((val, i) =>
           <>
             <HStack spacing="20px">
-              <Input
-                type="text"
-                value={val["type"]}
-                onChange={(e) => handleChangeFood(e, i)}
-              />
-              <Input
-                type="number"
-                value={val["num"]}
-                onChange={(e) => handleNum(e, i)}
-              />
-              <Button 
+              <Box>
+                <Text fontSize="sm">商品</Text>
+                <Input
+                  type="text"
+                  value={val["type"]}
+                  onChange={(e) => handleChangeFood(e, i)}
+                />
+              </Box>
+              <Box>
+                <Text fontSize="sm">個数</Text>
+                <Input
+                  type="number"
+                  value={val["num"]}
+                  onChange={(e) => handleNum(e, i)}
+                />
+              </Box>
+              <Button
                 onClick={(e) => handleDeleteFood(e, i)}
                 width="100px"
               >
@@ -59,11 +83,12 @@ const Register = () => {
             </HStack>
           </>
         )}
-        <Button 
+        <Button
           onClick={handleAddFood}
           width="100px"
         >+</Button>
-        <Button 
+        <Button
+          onClick={handleEndRegister}
           colorScheme="blue"
           width="200px"
         >登録</Button>

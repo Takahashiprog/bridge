@@ -2,7 +2,7 @@ import { Heading } from "@chakra-ui/react"
 
 const Message = () => {
 
-  // chat-ui-kit-react??
+  // TODO chat-ui-kit-react??
 
   return (
     <>
