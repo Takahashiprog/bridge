@@ -4,8 +4,6 @@ export const AppContext = createContext()
 
 const AppContextProvider = ({children}) => {
   const [isLogin, setIsLogin] = useState(false)
-  const [isSignup, setIsSignup] = useState(true)
-  const [isRegister, setIsRegister] = useState(false)
   const [isSchool, setIsSchool] = useState(true)
   const [loginName, setLoginName] = useState('')
   return(
@@ -13,10 +11,6 @@ const AppContextProvider = ({children}) => {
       value={{
         isLogin,
         setIsLogin,
-        isSignup,
-        setIsSignup,
-        isRegister,
-        setIsRegister,
         isSchool,
         setIsSchool,
         loginName,

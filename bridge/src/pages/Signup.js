@@ -1,15 +1,13 @@
 import { useContext, useState } from "react"
-import { Redirect } from "react-router-dom"
+// import { Redirect } from "react-router-dom"
 import { AppContext } from "../contexts/AppContext"
 import { Input, HStack, Box, Text, Radio, RadioGroup, Button, VStack, Heading } from "@chakra-ui/react"
+import { useNavigate } from "react-router-dom"
 
 const Signup = () => {
   const {
-    isSignup,
-    setIsSignup,
     isSchool,
     setIsSchool,
-    isLogin,
     setIsLogin,
   } = useContext(AppContext)
 
@@ -17,14 +15,7 @@ const Signup = () => {
   const [address, setAdress] = useState("")
   const [phone, setPhone] = useState("")
   const [pass, setPass] = useState("")
-
-  if (isSignup) {
-    return <Redirect to="/login" />
-  }
-
-  if(isLogin){
-    return <Redirect to="/" />
-  }
+  const navigate = useNavigate()
 
   const handleRadio = () => {
     setIsSchool(!isSchool)
@@ -50,8 +41,8 @@ const Signup = () => {
 
     // TODO post info
 
-    setIsSignup(true)
     setIsLogin(true)
+    navigate("/")
   }
 
   return (
@@ -104,8 +95,8 @@ const Signup = () => {
           width="200px"
         >登録</Button>
         <Button
-          onClick={() => setIsSignup(!isSignup)}
           width="200px"
+          onClick={() => {navigate("/login")}}
         >ログイン画面へ</Button>
       </VStack>
     </>

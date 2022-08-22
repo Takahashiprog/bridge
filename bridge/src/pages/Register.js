@@ -1,20 +1,17 @@
 import { Button, Input, HStack, VStack, Heading, Box, Text } from "@chakra-ui/react"
 import { useContext, useState } from "react"
-import { Redirect } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 import { AppContext } from "../contexts/AppContext"
 
 const Register = () => {
-  const { isRegister, setIsRegister, isLogin } = useContext(AppContext)
+  const { isLogin } = useContext(AppContext)
+  const navigate = useNavigate()
   const [food, setFood] = useState([
     { "type": "", "num": 1 },
   ])
 
-  if (!isRegister) {
-    return <Redirect to="/" />
-  }
-
   if (!isLogin) {
-    return <Redirect to="/login" />
+    // return <Redirect to="/login" />
   }
 
   const handleChangeFood = (e, index) => {
@@ -48,11 +45,7 @@ const Register = () => {
 
     // TODO post info
 
-    setIsRegister(false)
-  }
-
-  const handleBackHome = () => {
-    setIsRegister(false)
+    navigate("/")
   }
 
   return (
@@ -97,7 +90,7 @@ const Register = () => {
           width="200px"
         >登録</Button>
         <Button
-          onClick={handleBackHome}
+          onClick={() => navigate("/")}
           width="200px"
         >もどる</Button>
       </VStack>

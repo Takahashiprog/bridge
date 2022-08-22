@@ -1,25 +1,18 @@
 import { useContext } from 'react'
-import { Redirect } from 'react-router-dom'
 import EditBio from '../components/EditBio'
 import History from '../components/History'
 import Message from '../components/Message'
 import NearClient from '../components/NearClients'
 import { AppContext } from '../contexts/AppContext'
 import { Box, Button, Spacer, VStack } from '@chakra-ui/react'
+import { useNavigate } from 'react-router-dom'
 
 const Home = () => {
-  const { isLogin, setIsLogin, isRegister, setIsRegister } = useContext(AppContext)
+  const { isLogin, setIsLogin} = useContext(AppContext)
+  const navigate = useNavigate()
 
   if (!isLogin) {
-    return <Redirect to="/login" />
-  }
-
-  if(isRegister){
-    return <Redirect to="/register" />
-  }
-
-  const handleToRegister = () => {
-    setIsRegister(true)
+    navigate("/login")
   }
 
   const handleLogout = () => {
@@ -29,7 +22,7 @@ const Home = () => {
   return (
     <>
       <Box margin="20px">
-        <VStack spacing="50px">
+        <VStack spacing="40px">
           <Spacer />
           <NearClient />
           <History />
@@ -37,7 +30,7 @@ const Home = () => {
           <EditBio />
           <Spacer />
           <Button 
-            onClick={handleToRegister}
+            onClick={() => navigate("/register")}
             colorScheme="blue"
             width="200px"
           >商品登録へ</Button>
