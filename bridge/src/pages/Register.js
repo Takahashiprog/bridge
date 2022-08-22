@@ -51,6 +51,10 @@ const Register = () => {
     setIsRegister(false)
   }
 
+  const handleBackHome = () => {
+    setIsRegister(false)
+  }
+
   return (
     <>
       <VStack spacing="20px" textAlign="left" marginTop="20px">
@@ -92,6 +96,10 @@ const Register = () => {
           colorScheme="blue"
           width="200px"
         >登録</Button>
+        <Button
+          onClick={handleBackHome}
+          width="200px"
+        >もどる</Button>
       </VStack>
     </>
   )

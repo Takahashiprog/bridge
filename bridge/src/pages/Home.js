@@ -8,7 +8,7 @@ import { AppContext } from '../contexts/AppContext'
 import { Box, Button, Spacer, VStack } from '@chakra-ui/react'
 
 const Home = () => {
-  const { isLogin, isRegister, setIsRegister } = useContext(AppContext)
+  const { isLogin, setIsLogin, isRegister, setIsRegister } = useContext(AppContext)
 
   if (!isLogin) {
     return <Redirect to="/login" />
@@ -22,17 +22,31 @@ const Home = () => {
     setIsRegister(true)
   }
 
+  const handleLogout = () => {
+    setIsLogin(false)
+  }
+
   return (
     <>
       <Box margin="20px">
-        <VStack spacing="20px">
-          <Message />
+        <VStack spacing="50px">
+          <Spacer />
           <NearClient />
           <History />
+          <Message />
           <EditBio />
           <Spacer />
+          <Button 
+            onClick={handleToRegister}
+            colorScheme="blue"
+            width="200px"
+          >商品登録へ</Button>
+          <Button 
+            onClick={handleLogout} 
+            colorScheme="red"
+            width="200px"
+          >ログアウト</Button>
         </VStack>
-        <Button onClick={handleToRegister}>商品登録へ</Button>
       </Box>
     </>
   )

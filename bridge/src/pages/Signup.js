@@ -72,7 +72,7 @@ const Signup = () => {
             onChange={handleUserName}
           />
         </Box>
-        {isSchool ? <></> : (
+        {isSchool ? <></> : <>
           <Box w="400px">
             <Text fontSize="sm">住所</Text>
             <Input
@@ -81,7 +81,7 @@ const Signup = () => {
               onChange={handleAdress}
             />
           </Box>
-        )}
+        </>}
         <Box w="400px">
           <Text fontSize="sm">電話番号</Text>
           <Input

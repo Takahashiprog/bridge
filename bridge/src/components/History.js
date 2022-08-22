@@ -11,15 +11,17 @@ const History = () => {
 
   return (
     <>
-      <Heading fontSize="2xl">取引履歴</Heading>
-      <Box textAlign="left" w="400px">
-        {dealList.map((val) => (
-          <Box marginTop="20px">
-            <Heading fontSize="md">{val["partner"]}</Heading>
-            <Text fontSize="md">種類：{val["type"]}</Text>
-            <Text fontSize="md">個数：{val["num"]}</Text>
-          </Box>
-        ))}
+      <Box>
+        <Heading size="md">取引履歴</Heading>
+        <Box textAlign="left" w="400px">
+          {dealList.map((val) => (
+            <Box marginTop="30px">
+              <Heading size="sm">{val["partner"]}</Heading>
+              <Text fontSize="md">種類：{val["type"]}</Text>
+              <Text fontSize="md">個数：{val["num"]}</Text>
+            </Box>
+          ))}
+        </Box>
       </Box>
     </>
   )

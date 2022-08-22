@@ -1,4 +1,4 @@
-import { Heading } from "@chakra-ui/react"
+import { Heading, Box } from "@chakra-ui/react"
 
 const Message = () => {
 
@@ -6,7 +6,9 @@ const Message = () => {
 
   return (
     <>
-      <Heading fontSize="2xl">メッセージ</Heading>
+      <Box>
+        <Heading size="md">メッセージ</Heading>
+      </Box>
     </>
   )
 }

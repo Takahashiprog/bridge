@@ -5,20 +5,23 @@ const NearClient = () => {
   // TODO get clientList
 
   const clientList = [
-    { "name": "NPO JAPAN", "address": "東京" },
-    { "name": "foodbank sapporo", "address": "札幌" },
+    { "name": "NPO JAPAN", "address": "東京", "explain": "日本最大のフードバンク団体です" },
+    { "name": "foodbank sapporo", "address": "札幌", "explain": "フードロス撲滅を掲げています" },
   ]
 
   return (
     <>
-      <Heading fontSize="2xl">近くの取引先一覧</Heading>
-      <Box textAlign="left" w="400px">
-        {clientList.map((val) => (
-          <Box marginTop="20px">
-            <Heading size="md">{val["name"]}</Heading>
-            <Text fontSize="md">所在地：{val["address"]}</Text>
-          </Box>
-        ))}
+      <Box>
+        <Heading size="md">近くの取引先一覧</Heading>
+        <Box textAlign="left" w="400px">
+          {clientList.map((val) => (
+            <Box marginTop="30px">
+              <Heading size="sm">{val["name"]}</Heading>
+              <Text fontSize="md">所在地：{val["address"]}</Text>
+              <Text fontSize="md">{val["explain"]}</Text>
+            </Box>
+          ))}
+        </Box>
       </Box>
     </>
   )
