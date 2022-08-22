@@ -1,7 +1,7 @@
 import { useContext, useState } from "react"
 import { Redirect } from "react-router-dom"
 import { AppContext } from "../contexts/AppContext"
-import { Input, List, ListItem, Text } from "@chakra-ui/react"
+import { Button, Input, Box, Radio, RadioGroup, HStack, Text, VStack, Heading } from "@chakra-ui/react"
 
 const Login = () => {
   const {
@@ -14,17 +14,17 @@ const Login = () => {
   const [userName, setUserName] = useState("")
   const [pass, setPass] = useState("")
 
+  const handleRadio = () => {
+    setIsSchool(!isSchool)
+  }
+
   const handleUserName = (e) => {
     setUserName(e.target.value)
   }
 
   const handlePass = (e) => {
-    setPass(e.target.value)
-  }
-
-  const handleIsSchool = (school) => {
-    setIsSchool(school)
     console.log(isSchool)
+    setPass(e.target.value)
   }
 
   if (!isSignup) {
@@ -33,43 +33,39 @@ const Login = () => {
 
   return (
     <>
-      <Input
-        id="type1"
-        type="radio"
-        name="userType"
-        defaultChecked
-        onClick={() => handleIsSchool(true)}
-      />
-      <Text>学校関係者</Text>
-      <br />
-      <Input
-        id="type2"
-        type="radio"
-        name="userType"
-        onClick={() => handleIsSchool(false)}
-      />
-      <Text>フードバンク運営</Text>
-      <List>
-        <ListItem>
-          <Text>{isSchool ? "学校名" : "団体名"}</Text>
+      <VStack spacing="20px" textAlign="left" marginTop="20px">
+        <Heading size="md">ログイン</Heading>
+        <RadioGroup onChange={handleRadio} value={isSchool}>
+          <HStack spacing="50px">
+            <Radio value={true} defaultChecked>学校関係者</Radio>
+            <Radio value={false}>フードバンク運営</Radio>
+          </HStack>
+        </RadioGroup>
+        <Box w="400px">
+          <Text fontSize="sm">{isSchool ? "学校名" : "団体名"}</Text>
           <Input
             type="text"
             value={userName}
             onChange={handleUserName}
           />
-        </ListItem>
-        <ListItem>
-          <Text>パスワード</Text>
+        </Box>
+        <Box w="400px">
+          <Text fontSize="sm">パスワード</Text>
           <Input
             type="password"
             value={pass}
             onChange={handlePass}
           />
-        </ListItem>
-      </List>
-      <Input type="button" value="ログイン" />
-      <br />
-      <Input type="button" value="新規登録" onClick={() => { setIsSignup(!isSignup) }} />
+        </Box>
+        <Button 
+          colorScheme="blue" 
+          width="200px"
+        >ログイン</Button>
+        <Button 
+          onClick={() => { setIsSignup(!isSignup) }}
+          width="200px"
+        >新規登録</Button>
+      </VStack>
     </>
   )
 }

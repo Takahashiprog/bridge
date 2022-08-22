@@ -1,8 +1,12 @@
-import { useState } from "react"
-import { Input, List, ListItem, Text } from "@chakra-ui/react"
+import { useContext, useState } from "react"
+import { Button, Input, Text, Heading, VStack, Box } from "@chakra-ui/react"
+import { AppContext } from "../contexts/AppContext"
 
 
 const EditBio = () => {
+  const {
+    isSchool
+  } = useContext(AppContext)
 
   // TODO bioをpost
   const myBio = {
@@ -17,20 +21,32 @@ const EditBio = () => {
     setNewBio({ "name": e.target.value, "address": newBio["address"] })
   }
 
+  const handleSaveBio = () => {
+    // post bio
+  }
+
   return (
     <>
-      <Text fontSize="xl">設定を変更</Text>
-      <List>
-        <ListItem>
-          <Text>団体名</Text>
+      <Heading fontSize="2xl">設定を変更</Heading>
+      <VStack spacing="20px" textAlign="left">
+        <Box w="400px">
+          <Text fontSize="sm">{isSchool ? "学校名" : "団体名"}</Text>
           <Input
             type="text"
             value={newBio["name"]}
             onChange={handleName}
           />
-        </ListItem>
-      </List>
-      <Input type="button" value="変更を保存" />
+        </Box>
+        <Box w="400px">
+          <Text fontSize="sm">所在地</Text>
+          <Input
+            type="text"
+            value={newBio["address"]}
+            onChange={handleName}
+          />
+        </Box>
+      </VStack>
+      <Button onClick={handleSaveBio}>変更を保存</Button>
     </>
   )
 }

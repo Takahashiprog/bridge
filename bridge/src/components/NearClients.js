@@ -1,4 +1,4 @@
-import { List, ListItem, Text } from "@chakra-ui/react"
+import { Box, Heading, Text, VStack } from "@chakra-ui/react"
 
 const NearClient = () => {
 
@@ -10,15 +10,15 @@ const NearClient = () => {
 
   return (
     <>
-      <Text fontSize="xl">近くの取引先一覧</Text>
-      <List>
+      <Heading fontSize="2xl">近くの取引先一覧</Heading>
+      <Box textAlign="left" w="400px">
         {clientList.map((val) => (
-          <ListItem>
-            <p>名称：{val["name"]}</p>
-            <p>所在地：{val["address"]}</p>
-          </ListItem>
+          <Box marginTop="20px">
+            <Heading size="md">{val["name"]}</Heading>
+            <Text fontSize="md">所在地：{val["address"]}</Text>
+          </Box>
         ))}
-      </List>
+      </Box>
     </>
   )
 }

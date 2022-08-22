@@ -1,4 +1,4 @@
-import { Input } from "@chakra-ui/react"
+import { Button, Input, HStack, VStack, Heading } from "@chakra-ui/react"
 import { useState } from "react"
 
 const Register = () => {
@@ -35,36 +35,39 @@ const Register = () => {
 
   return (
     <>
-      {food.map((val, i) =>
-        <>
-          <Input
-            type="text"
-            value={val["type"]}
-            onChange={(e) => handleChangeFood(e, i)}
-          />
-          <Input
-            type="number"
-            value={val["num"]}
-            onChange={(e) => handleNum(e, i)}
-          />
-          <Input
-            type="button"
-            value="delete"
-            onClick={(e) => handleDeleteFood(e, i)}
-          />
-          <br />
-        </>
-      )}
-      <Input
-        type="button"
-        value=" + "
-        onClick={handleAddFood}
-      />
-      <br />
-      <Input
-        type="button"
-        value="登録"
-      />
+      <VStack spacing="20px" textAlign="left" marginTop="20px">
+        <Heading size="md">商品登録</Heading>
+        {food.map((val, i) =>
+          <>
+            <HStack spacing="20px">
+              <Input
+                type="text"
+                value={val["type"]}
+                onChange={(e) => handleChangeFood(e, i)}
+              />
+              <Input
+                type="number"
+                value={val["num"]}
+                onChange={(e) => handleNum(e, i)}
+              />
+              <Button 
+                onClick={(e) => handleDeleteFood(e, i)}
+                width="100px"
+              >
+                delete
+              </Button>
+            </HStack>
+          </>
+        )}
+        <Button 
+          onClick={handleAddFood}
+          width="100px"
+        >+</Button>
+        <Button 
+          colorScheme="blue"
+          width="200px"
+        >登録</Button>
+      </VStack>
     </>
   )
 }
