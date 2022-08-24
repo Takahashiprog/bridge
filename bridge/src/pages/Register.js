@@ -1,5 +1,5 @@
 import { Button, Input, HStack, VStack, Heading, Box, Text } from "@chakra-ui/react"
-import { useContext, useState } from "react"
+import { useContext, useState, useEffect } from "react"
 import { useNavigate } from "react-router-dom"
 import { AppContext } from "../contexts/AppContext"
 
@@ -10,9 +10,11 @@ const Register = () => {
     { "type": "", "num": 1 },
   ])
 
-  if (!isLogin) {
-    // return <Redirect to="/login" />
-  }
+  useEffect(() => {
+    if (!isLogin) {
+      navigate("/login")
+    }
+  }, [isLogin, navigate])
 
   const handleChangeFood = (e, index) => {
     setFood(
@@ -43,7 +45,7 @@ const Register = () => {
 
   const handleEndRegister = () => {
 
-    // TODO post info
+    // TODO post info and date
 
     navigate("/")
   }
@@ -71,12 +73,15 @@ const Register = () => {
                   onChange={(e) => handleNum(e, i)}
                 />
               </Box>
-              <Button
-                onClick={(e) => handleDeleteFood(e, i)}
-                width="100px"
-              >
-                delete
-              </Button>
+              <Box>
+                <Text fontSize="sm">{"　"}</Text>
+                <Button
+                  onClick={(e) => handleDeleteFood(e, i)}
+                  width="100px"
+                >
+                  delete
+                </Button>
+              </Box>
             </HStack>
           </>
         )}

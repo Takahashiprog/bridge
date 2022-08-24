@@ -51,8 +51,8 @@ const Signup = () => {
         <Heading size="md">サインアップ</Heading>
         <RadioGroup onChange={handleRadio} value={isSchool}>
           <HStack spacing="50px">
-            <Radio value={true} defaultChecked>学校関係者</Radio>
-            <Radio value={false}>フードバンク運営</Radio>
+            <Radio value={true} defaultChecked>わたす</Radio>
+            <Radio value={false}>うけとる</Radio>
           </HStack>
         </RadioGroup>
         <Box w="400px">

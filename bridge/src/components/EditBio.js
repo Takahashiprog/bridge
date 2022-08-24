@@ -8,7 +8,7 @@ const EditBio = () => {
     isSchool
   } = useContext(AppContext)
 
-  // TODO get bio
+  // TODO get bio and address
 
   const myBio = {
     "name": "NPO JAPAN",
@@ -26,13 +26,13 @@ const EditBio = () => {
     })
   }
 
-  const handleAddress = (e) => {
-    setNewBio({ 
-      "name": newBio["name"],
-      "address": e.target.value,
-      "explain": newBio["explain"],
-    })
-  }
+  // const handleAddress = (e) => {
+  //   setNewBio({ 
+  //     "name": newBio["name"],
+  //     "address": e.target.value,
+  //     "explain": newBio["explain"],
+  //   })
+  // }
 
   const handleExplain = (e) => {
     setNewBio({ 
@@ -45,6 +45,7 @@ const EditBio = () => {
   const handleSaveBio = () => {
 
     // TODO post bio
+
     console.log(newBio)
 
   }
@@ -64,14 +65,14 @@ const EditBio = () => {
             />
           </Box>
           {isSchool ? <></> : <>
-            <Box w="400px">
+            {/* <Box w="400px">
               <Text fontSize="sm">所在地</Text>
               <Input
                 type="text"
                 value={newBio["address"]}
                 onChange={handleAddress}
               />
-            </Box>
+            </Box> */}
             <Box w="400px">
               <Text fontSize="sm">紹介</Text>
               <Input

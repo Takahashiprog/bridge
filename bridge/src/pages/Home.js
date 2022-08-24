@@ -1,4 +1,4 @@
-import { useContext } from 'react'
+import { useContext, useEffect } from 'react'
 import EditBio from '../components/EditBio'
 import History from '../components/History'
 import Message from '../components/Message'
@@ -8,16 +8,14 @@ import { Box, Button, Spacer, VStack } from '@chakra-ui/react'
 import { useNavigate } from 'react-router-dom'
 
 const Home = () => {
-  const { isLogin, setIsLogin} = useContext(AppContext)
+  const { isLogin, setIsLogin, isSchool } = useContext(AppContext)
   const navigate = useNavigate()
 
-  if (!isLogin) {
-    navigate("/login")
-  }
-
-  const handleLogout = () => {
-    setIsLogin(false)
-  }
+  useEffect(() => {
+    if (!isLogin) {
+      navigate("/login")
+    }
+  }, [isLogin, navigate])
 
   return (
     <>
@@ -29,13 +27,18 @@ const Home = () => {
           <Message />
           <EditBio />
           <Spacer />
-          <Button 
-            onClick={() => navigate("/register")}
-            colorScheme="blue"
-            width="200px"
-          >商品登録へ</Button>
-          <Button 
-            onClick={handleLogout} 
+          {isSchool ? <>
+            <Button
+              onClick={() => navigate("/register")}
+              colorScheme="blue"
+              width="200px"
+            >商品登録へ</Button>
+          </> : <></>}
+          <Button
+            onClick={() => {
+              setIsLogin(false)
+              navigate("/login")
+            }}
             colorScheme="red"
             width="200px"
           >ログアウト</Button>

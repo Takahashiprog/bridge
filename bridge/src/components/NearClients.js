@@ -17,7 +17,7 @@ const NearClient = () => {
           {clientList.map((val) => (
             <Box marginTop="30px">
               <Heading size="sm">{val["name"]}</Heading>
-              <Text fontSize="md">所在地：{val["address"]}</Text>
+              {/* <Text fontSize="md">所在地：{val["address"]}</Text> */}
               <Text fontSize="md">{val["explain"]}</Text>
             </Box>
           ))}
