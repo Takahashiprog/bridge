@@ -1,25 +1,21 @@
 import { useContext, useState } from "react"
 // import { Redirect } from "react-router-dom"
 import { AppContext } from "../contexts/AppContext"
-import { Input, HStack, Box, Text, Radio, RadioGroup, Button, VStack, Heading } from "@chakra-ui/react"
+import { Input, Box, Text, Button, VStack, Center, Spacer} from "@chakra-ui/react"
 import { useNavigate } from "react-router-dom"
+import MyHeader from "../components/MyHeader"
 
 const Signup = () => {
   const {
     isSchool,
-    setIsSchool,
     setIsLogin,
   } = useContext(AppContext)
 
   const [userName, setUserName] = useState("")
   const [address, setAdress] = useState("")
-  const [phone, setPhone] = useState("")
+  // const [phone, setPhone] = useState("")
   const [pass, setPass] = useState("")
   const navigate = useNavigate()
-
-  const handleRadio = () => {
-    setIsSchool(!isSchool)
-  }
 
   const handleUserName = (e) => {
     setUserName(e.target.value)
@@ -29,9 +25,9 @@ const Signup = () => {
     setAdress(e.target.value)
   }
 
-  const handlePhone = (e) => {
-    setPhone(e.target.value)
-  }
+  // const handlePhone = (e) => {
+  //   setPhone(e.target.value)
+  // }
 
   const handlePass = (e) => {
     setPass(e.target.value)
@@ -47,7 +43,55 @@ const Signup = () => {
 
   return (
     <>
-      <VStack spacing="20px" textAlign="left" marginTop="20px">
+    <MyHeader />
+    <Center position="absolute" height="100vh" width="full" top="0">
+      <VStack
+        padding="40px 80px"
+        textAlign="left"
+        borderRadius="25px"
+        boxShadow="2xl"
+        spacing="30px"
+      >
+        <Text
+          fontSize="20px"
+          display="inline"
+          paddingTop="5px"
+        >{isSchool ? "学校" : "団体"}アカウント作成</Text>
+        <Box w="400px">
+          <Text fontSize="14px">{isSchool ? "学校名" : "団体名"}</Text>
+          <Input
+            type="text"
+            value={userName}
+            onChange={handleUserName}
+          />
+        </Box>
+        <Box w="400px">
+          <Text fontSize="14px">住所</Text>
+          <Input
+            type="text"
+            value={address}
+            onChange={handleAdress}
+          />
+        </Box>
+        <Box w="400px">
+          <Text fontSize="14px">パスワード</Text>
+          <Input
+            type="password"
+            value={pass}
+            onChange={handlePass}
+          />
+        </Box>
+        <Spacer />
+        <Button
+          width="150px"
+          borderRadius="full"
+          backgroundColor="#B9E3B2"
+          onClick={handleEndSignup}
+        >登録</Button>
+      </VStack>
+    </Center>
+
+      {/* <VStack spacing="20px" textAlign="left" marginTop="20px">
         <Heading size="md">サインアップ</Heading>
         <RadioGroup onChange={handleRadio} value={isSchool}>
           <HStack spacing="50px">
@@ -98,7 +142,7 @@ const Signup = () => {
           width="200px"
           onClick={() => {navigate("/login")}}
         >ログイン画面へ</Button>
-      </VStack>
+      </VStack> */}
     </>
   )
 }

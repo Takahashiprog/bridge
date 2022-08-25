@@ -1,79 +1,93 @@
-import { useContext, useState } from "react"
-import { AppContext } from "../contexts/AppContext"
-import { Button, Input, Box, Radio, RadioGroup, HStack, Text, VStack, Heading } from "@chakra-ui/react"
-import { useNavigate } from "react-router-dom"
+import { Box, HStack, Text, VStack, Center, Image, Spacer, Modal, useDisclosure, ModalOverlay, ModalContent } from "@chakra-ui/react"
 import MyHeader from "../components/MyHeader"
+import mainImg from "../assets/main.jpg"
+import schoolImg from "../assets/school.png"
+import presentImg from "../assets/present.png"
+import { useContext } from "react"
+import { AppContext } from "../contexts/AppContext"
+import LoginModal from "../components/LoginModal"
 
 const Login = () => {
-  const {
-    isSchool,
-    setIsSchool,
-    setIsLogin,
-  } = useContext(AppContext)
-  
-  const [userName, setUserName] = useState("")
-  const [pass, setPass] = useState("")
-  const navigate = useNavigate()
-
-  const handleRadio = () => {
-    setIsSchool(!isSchool)
-  }
-
-  const handleUserName = (e) => {
-    setUserName(e.target.value)
-  }
-
-  const handlePass = (e) => {
-    console.log(isSchool)
-    setPass(e.target.value)
-  }
-
-  const handleEndLogin = () => {
-
-    // check pass
-
-    setIsLogin(true)
-    navigate("/")
-  }
+  const { setIsSchool } = useContext(AppContext)
+  const { isOpen, onOpen, onClose } = useDisclosure()
 
   return (
     <>
       <MyHeader />
-      <VStack spacing="20px" textAlign="left" marginTop="20px">
-        <Heading size="md">ログイン</Heading>
-        <RadioGroup onChange={handleRadio} value={isSchool}>
-          <HStack spacing="50px">
-            <Radio value={true} defaultChecked>わたす</Radio>
-            <Radio value={false}>うけとる</Radio>
-          </HStack>
-        </RadioGroup>
-        <Box w="400px">
-          <Text fontSize="sm">{isSchool ? "学校名" : "団体名"}</Text>
-          <Input
-            type="text"
-            value={userName}
-            onChange={handleUserName}
-          />
+      <Center h="400px">
+        <Image
+          src={mainImg}
+          fit="cover"
+          h="400px"
+          w="full"
+          position="absolute"
+          zIndex="-1"
+          filter="brightness(60%)"
+        />
+        <Text color="white" fontSize="20px" lineHeight="10" marginBottom="60px">
+          食品ロスは身近なところから<br />
+          E-FOODは学校に焦点を当てたフードバンクプロジェクトです
+        </Text>
+      </Center>
+      <Box position="absolute" top="380px" w="full">
+        <HStack p="0 300px" justifyContent="space-between">
+          <VStack
+            textAlign="center"
+            width="320px"
+            borderRadius="25px"
+            padding="40px"
+            backgroundColor="white"
+            boxShadow="2xl"
+            spacing="30px"
+            onClick={() => {
+              onOpen()
+              setIsSchool(true)
+            }}
+          >
+            <Image src={schoolImg} height="90px" />
+            <Text fontSize="24px">送る</Text>
+            <Spacer />
+            <Text fontSize="14px">学校関係者はこちらから</Text>
+          </VStack>
+          <VStack
+            textAlign="center"
+            width="320px"
+            borderRadius="25px"
+            padding="40px"
+            backgroundColor="white"
+            boxShadow="2xl"
+            spacing="30px"
+            onClick={() => {
+              onOpen()
+              setIsSchool(false)
+            }}
+          >
+            <Image src={presentImg} height="80px" margin="5px" />
+            <Text fontSize="24px">受け取る</Text>
+            <Spacer />
+            <Text fontSize="14px">受け取り希望団体はこちらから</Text>
+          </VStack>
+        </HStack>
+      </Box>
+      <Center marginTop="320px" marginBottom="100px">
+        <Box
+          boxShadow="2xl"
+          width="1000px"
+          padding="40px"
+          borderRadius="25px"
+        >
+          <Text fontSize="24px" color="green">
+            フードバンク<span style={{ color: "black", fontSize: "14px" }}>とは</span>
+          </Text>
         </Box>
-        <Box w="400px">
-          <Text fontSize="sm">パスワード</Text>
-          <Input
-            type="password"
-            value={pass}
-            onChange={handlePass}
-          />
-        </Box>
-        <Button
-          onClick={handleEndLogin}
-          colorScheme="blue" 
-          width="200px"
-        >ログイン</Button>
-        <Button 
-          width="200px"
-          as="a"
-          href="/signup"
-        >新規登録</Button>
-      </VStack>
+      </Center>
+
+      <Modal isOpen={isOpen} onClose={onClose}>
+        <ModalOverlay />
+        <ModalContent borderRadius="25px">
+          <LoginModal />
+        </ModalContent>
+      </Modal>
     </>
   )
 }

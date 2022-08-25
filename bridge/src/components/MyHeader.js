@@ -4,17 +4,28 @@ import logoImg from "../assets/logo.png"
 const MyHeader = () => {
   return (
     <>
-      <Box position="fixed" w="full" backgroundColor="white" top="0" left="0" zIndex="1">
-        <HStack w="full" justifyContent="space-between" paddingRight="10px">
-          <Image src={logoImg} h="80px" alt="logo"/>
+      <Box 
+        position="fixed" 
+        width="full" 
+        backgroundColor="white" 
+        top="0" 
+        left="0" 
+        zIndex="1"
+        padding="5px 10px"
+        boxShadow="md"
+      >
+        <HStack width="full" justifyContent="space-between" paddingRight="15px">
+          <Image src={logoImg} height="80px" alt="logo"/>
           <Input
-            w="200px"
+            width="200px"
+            height="35px"
             type="text"
-            borderRadius="20px"
+            borderRadius="full"
+            placeholder="検索"
           />
         </HStack>
       </Box>
-      <Box h="80px"></Box>
+      <Box height="80px"></Box>
     </>
   )
 }
