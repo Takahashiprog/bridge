@@ -2,6 +2,7 @@ import { useContext, useState } from "react"
 import { AppContext } from "../contexts/AppContext"
 import { Button, Input, Box, Radio, RadioGroup, HStack, Text, VStack, Heading } from "@chakra-ui/react"
 import { useNavigate } from "react-router-dom"
+import MyHeader from "../components/MyHeader"
 
 const Login = () => {
   const {
@@ -37,6 +38,7 @@ const Login = () => {
 
   return (
     <>
+      <MyHeader />
       <VStack spacing="20px" textAlign="left" marginTop="20px">
         <Heading size="md">ログイン</Heading>
         <RadioGroup onChange={handleRadio} value={isSchool}>

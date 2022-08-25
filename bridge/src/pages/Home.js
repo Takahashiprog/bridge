@@ -6,6 +6,7 @@ import NearClient from '../components/NearClients'
 import { AppContext } from '../contexts/AppContext'
 import { Box, Button, Spacer, VStack } from '@chakra-ui/react'
 import { useNavigate } from 'react-router-dom'
+import MyHeader from '../components/MyHeader'
 
 const Home = () => {
   const { isLogin, setIsLogin, isSchool } = useContext(AppContext)
@@ -19,7 +20,8 @@ const Home = () => {
 
   return (
     <>
-      <Box margin="20px">
+      <Box>
+        <MyHeader />
         <VStack spacing="40px">
           <Spacer />
           <NearClient />
@@ -42,6 +44,7 @@ const Home = () => {
             colorScheme="red"
             width="200px"
           >ログアウト</Button>
+          <Spacer />
         </VStack>
       </Box>
     </>
