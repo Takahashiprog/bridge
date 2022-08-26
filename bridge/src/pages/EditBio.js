@@ -1,6 +1,7 @@
 import { useContext, useState } from "react"
 import { Button, Input, Text, Heading, VStack, Box, Spacer } from "@chakra-ui/react"
 import { AppContext } from "../contexts/AppContext"
+import { useNavigate } from "react-router-dom"
 
 
 const EditBio = () => {
@@ -8,7 +9,7 @@ const EditBio = () => {
     isSchool
   } = useContext(AppContext)
 
-  // TODO get bio
+  // TODO get bio and address
 
   const myBio = {
     "name": "NPO JAPAN",
@@ -17,6 +18,7 @@ const EditBio = () => {
   }
 
   const [newBio, setNewBio] = useState(myBio)
+  const navigate = useNavigate()
 
   const handleName = (e) => {
     setNewBio({ 
@@ -26,13 +28,13 @@ const EditBio = () => {
     })
   }
 
-  const handleAddress = (e) => {
-    setNewBio({ 
-      "name": newBio["name"],
-      "address": e.target.value,
-      "explain": newBio["explain"],
-    })
-  }
+  // const handleAddress = (e) => {
+  //   setNewBio({ 
+  //     "name": newBio["name"],
+  //     "address": e.target.value,
+  //     "explain": newBio["explain"],
+  //   })
+  // }
 
   const handleExplain = (e) => {
     setNewBio({ 
@@ -45,15 +47,16 @@ const EditBio = () => {
   const handleSaveBio = () => {
 
     // TODO post bio
-    console.log(newBio)
 
+    console.log(newBio)
+    navigate("/")
   }
 
   return (
     <>
       <Box>
         <Heading size="md">設定を変更</Heading>
-        <VStack spacing="30px" textAlign="left">
+        <VStack spacing={30} textAlign="left">
           <Spacer />
           <Box w="400px">
             <Text fontSize="sm">{isSchool ? "学校名" : "団体名"}</Text>
@@ -64,14 +67,14 @@ const EditBio = () => {
             />
           </Box>
           {isSchool ? <></> : <>
-            <Box w="400px">
+            {/* <Box w="400px">
               <Text fontSize="sm">所在地</Text>
               <Input
                 type="text"
                 value={newBio["address"]}
                 onChange={handleAddress}
               />
-            </Box>
+            </Box> */}
             <Box w="400px">
               <Text fontSize="sm">紹介</Text>
               <Input
@@ -87,6 +90,10 @@ const EditBio = () => {
           onClick={handleSaveBio}
           width="120px"
         >変更を保存</Button>
+        <Button 
+          onClick={() => navigate("/")}
+          width="120px"
+        >もどる</Button>
       </Box>
     </>
   )

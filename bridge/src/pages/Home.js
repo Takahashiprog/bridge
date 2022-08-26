@@ -1,46 +1,35 @@
-import { useContext } from 'react'
-import EditBio from '../components/EditBio'
+import { useContext, useEffect } from 'react'
 import History from '../components/History'
 import Message from '../components/Message'
 import NearClient from '../components/NearClients'
 import { AppContext } from '../contexts/AppContext'
-import { Box, Button, Spacer, VStack } from '@chakra-ui/react'
+import { Spacer, VStack } from '@chakra-ui/react'
 import { useNavigate } from 'react-router-dom'
+import MyHeader from '../components/MyHeader'
+import FoodList from '../components/FoodList'
+import MyFooter from '../components/MyFooter'
 
 const Home = () => {
-  const { isLogin, setIsLogin} = useContext(AppContext)
+  const { isLogin } = useContext(AppContext)
   const navigate = useNavigate()
 
-  if (!isLogin) {
-    navigate("/login")
-  }
-
-  const handleLogout = () => {
-    setIsLogin(false)
-  }
+  useEffect(() => {
+    if (!isLogin) {
+      navigate("/login")
+    }
+  }, [isLogin, navigate])
 
   return (
     <>
-      <Box margin="20px">
-        <VStack spacing="40px">
-          <Spacer />
-          <NearClient />
-          <History />
-          <Message />
-          <EditBio />
-          <Spacer />
-          <Button 
-            onClick={() => navigate("/register")}
-            colorScheme="blue"
-            width="200px"
-          >商品登録へ</Button>
-          <Button 
-            onClick={handleLogout} 
-            colorScheme="red"
-            width="200px"
-          >ログアウト</Button>
-        </VStack>
-      </Box>
+      <MyHeader />
+      <VStack spacing={40} overflowX="hidden">
+        <FoodList />
+        <NearClient />
+        <History />
+        <Message />
+        <Spacer />
+      </VStack>
+      <MyFooter />
     </>
   )
 }
