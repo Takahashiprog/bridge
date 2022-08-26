@@ -1,7 +1,7 @@
 import { useContext, useState } from "react"
 // import { Redirect } from "react-router-dom"
 import { AppContext } from "../contexts/AppContext"
-import { Input, Box, Text, Button, VStack, Center, Spacer } from "@chakra-ui/react"
+import { Input, Box, Text, Button, VStack, Center, Spacer} from "@chakra-ui/react"
 import { useNavigate, Link } from "react-router-dom"
 import MyHeader from "../components/MyHeader"
 
@@ -43,17 +43,6 @@ const Signup = () => {
 
   return (
     <>
-<<<<<<< HEAD
-<<<<<<<< HEAD: frontend / src / pages / Signup.js
-    < VStack spacing = "20px" textAlign = "left" marginTop = "20px"
-  boxShadow = 'xl' p = '6' rounded = 'md' bg = 'white' >
-        <Heading size="md">学校アカウント作成</Heading>
-
-        <Box w="400px">
-          <Text fontSize="sm">学校名</Text>
-========
-=======
->>>>>>> 7f5b0ad44c89035f6c64f209b9517e17bcdadcf2
     <MyHeader />
     <Center position="absolute" height="90vh" width="full" top="10vh">
       <VStack
@@ -70,67 +59,28 @@ const Signup = () => {
         >{isSchool ? "学校" : "団体"}アカウント作成</Text>
         <Box width={400}>
           <Text fontSize={14}>{isSchool ? "学校名" : "団体名"}</Text>
-<<<<<<< HEAD
->>>>>>>> 7f5b0ad44c89035f6c64f209b9517e17bcdadcf2: bridge / src / pages / Signup.js
-=======
->>>>>>> 7f5b0ad44c89035f6c64f209b9517e17bcdadcf2
-    < Input
-  type = "text"
-  value = { userName }
-  onChange = { handleUserName }
-    />
-        </Box >
-<<<<<<< HEAD
-<<<<<<<< HEAD: frontend / src / pages / Signup.js
-
-  < Box w = "400px" >
-          <Text fontSize="sm">住所</Text>
-========
+          <Input
+            type="text"
+            value={userName}
+            onChange={handleUserName}
+          />
+        </Box>
         <Box width={400}>
           <Text fontSize={14}>住所</Text>
->>>>>>>> 7f5b0ad44c89035f6c64f209b9517e17bcdadcf2:bridge/src/pages/Signup.js
-=======
-        <Box width={400}>
-          <Text fontSize={14}>住所</Text>
->>>>>>> 7f5b0ad44c89035f6c64f209b9517e17bcdadcf2
           <Input
             type="text"
             value={address}
             onChange={handleAdress}
           />
-        </Box >
-<<<<<<< HEAD
-<<<<<<<< HEAD: frontend / src / pages / Signup.js
-  < Box w = "400px" >
-          <Text fontSize="sm">password</Text>
-========
+        </Box>
         <Box width={400}>
           <Text fontSize={14}>パスワード</Text>
->>>>>>>> 7f5b0ad44c89035f6c64f209b9517e17bcdadcf2:bridge/src/pages/Signup.js
-=======
-        <Box width={400}>
-          <Text fontSize={14}>パスワード</Text>
->>>>>>> 7f5b0ad44c89035f6c64f209b9517e17bcdadcf2
           <Input
             type="password"
             value={pass}
             onChange={handlePass}
           />
-        </Box >
-<<<<<<< HEAD
-<<<<<<<< HEAD: frontend / src / pages / Signup.js
-  < Button
-onClick = { handleEndSignup }
-backgroundColor = "#b9e3b2"
-width = "200px"
-boxShadow = 'lg' p = '6' rounded = 'md' bg = 'white'
-  > 登録</Button >
-
-
-
-========
-=======
->>>>>>> 7f5b0ad44c89035f6c64f209b9517e17bcdadcf2
+        </Box>
         <Spacer />
         <VStack spacing={5}>
           <Button
@@ -145,12 +95,8 @@ boxShadow = 'lg' p = '6' rounded = 'md' bg = 'white'
           <Link to="/login" style={{ "color": "blue" }}>こちら</Link>
           から</Text>
         </VStack>
-<<<<<<< HEAD
-    >>>>>>>> 7f5b0ad44c89035f6c64f209b9517e17bcdadcf2: bridge / src / pages / Signup.js
-=======
->>>>>>> 7f5b0ad44c89035f6c64f209b9517e17bcdadcf2
-      </VStack >
-    </Center >
+      </VStack>
+    </Center>
     </>
   )
 }
