@@ -9,7 +9,7 @@ const Login = () => {
     setIsSchool,
     setIsLogin,
   } = useContext(AppContext)
-  
+
   const [userName, setUserName] = useState("")
   const [pass, setPass] = useState("")
   const navigate = useNavigate()
@@ -38,7 +38,7 @@ const Login = () => {
   return (
     <>
       <VStack spacing="20px" textAlign="left" marginTop="20px">
-        <Heading size="md">ログイン</Heading>
+        <Heading size="md" >ログイン</Heading>
         <RadioGroup onChange={handleRadio} value={isSchool}>
           <HStack spacing="50px">
             <Radio value={true} defaultChecked>学校関係者</Radio>
@@ -63,10 +63,10 @@ const Login = () => {
         </Box>
         <Button
           onClick={handleEndLogin}
-          colorScheme="blue" 
+          colorScheme="blue"
           width="200px"
         >ログイン</Button>
-        <Button 
+        <Button
           width="200px"
           as="a"
           href="/signup"

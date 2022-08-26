@@ -47,42 +47,29 @@ const Signup = () => {
 
   return (
     <>
-      <VStack spacing="20px" textAlign="left" marginTop="20px">
-        <Heading size="md">サインアップ</Heading>
-        <RadioGroup onChange={handleRadio} value={isSchool}>
-          <HStack spacing="50px">
-            <Radio value={true} defaultChecked>学校関係者</Radio>
-            <Radio value={false}>フードバンク運営</Radio>
-          </HStack>
-        </RadioGroup>
+      <VStack spacing="20px" textAlign="left" marginTop="20px"
+        boxShadow='xl' p='6' rounded='md' bg='white'>
+        <Heading size="md">学校アカウント作成</Heading>
+
         <Box w="400px">
-          <Text fontSize="sm">{isSchool ? "学校名" : "団体名"}</Text>
+          <Text fontSize="sm">学校名</Text>
           <Input
             type="text"
             value={userName}
             onChange={handleUserName}
           />
         </Box>
-        {isSchool ? <></> : <>
-          <Box w="400px">
-            <Text fontSize="sm">住所</Text>
-            <Input
-              type="text"
-              value={address}
-              onChange={handleAdress}
-            />
-          </Box>
-        </>}
+
         <Box w="400px">
-          <Text fontSize="sm">電話番号</Text>
+          <Text fontSize="sm">住所</Text>
           <Input
-            type="tel"
-            value={phone}
-            onChange={handlePhone}
+            type="text"
+            value={address}
+            onChange={handleAdress}
           />
         </Box>
         <Box w="400px">
-          <Text fontSize="sm">パスワード</Text>
+          <Text fontSize="sm">password</Text>
           <Input
             type="password"
             value={pass}
@@ -91,13 +78,13 @@ const Signup = () => {
         </Box>
         <Button
           onClick={handleEndSignup}
-          colorScheme="blue"
+          backgroundColor="#b9e3b2"
           width="200px"
+          boxShadow='lg' p='6' rounded='md' bg='white'
         >登録</Button>
-        <Button
-          width="200px"
-          onClick={() => {navigate("/login")}}
-        >ログイン画面へ</Button>
+
+
+
       </VStack>
     </>
   )

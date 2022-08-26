@@ -8,7 +8,7 @@ import { Box, Button, Spacer, VStack } from '@chakra-ui/react'
 import { useNavigate } from 'react-router-dom'
 
 const Home = () => {
-  const { isLogin, setIsLogin} = useContext(AppContext)
+  const { isLogin, setIsLogin } = useContext(AppContext)
   const navigate = useNavigate()
 
   if (!isLogin) {
@@ -21,7 +21,7 @@ const Home = () => {
 
   return (
     <>
-      <Box margin="20px">
+      <Box margin="20px" color="green.500" backgroundColor="blue.50" >
         <VStack spacing="40px">
           <Spacer />
           <NearClient />
@@ -29,15 +29,17 @@ const Home = () => {
           <Message />
           <EditBio />
           <Spacer />
-          <Button 
+          <Button
             onClick={() => navigate("/register")}
             colorScheme="blue"
             width="200px"
           >商品登録へ</Button>
-          <Button 
-            onClick={handleLogout} 
+          <Button
+            onClick={handleLogout}
             colorScheme="red"
             width="200px"
+            onClick={() => navigate("/Login")}
+
           >ログアウト</Button>
         </VStack>
       </Box>
