@@ -56,7 +56,7 @@ const Register = () => {
           src={tomatoImg}
           position="absolute"
           height="100%"
-          width="100%"
+          width="100"
           fit="cover"
           zIndex={-1}
         />
