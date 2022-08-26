@@ -8,6 +8,7 @@ import { Button, Spacer, VStack } from '@chakra-ui/react'
 import { useNavigate } from 'react-router-dom'
 import MyHeader from '../components/MyHeader'
 import FoodList from '../components/FoodList'
+import MyFooter from '../components/MyFooter'
 
 const Home = () => {
   const { isLogin, setIsLogin, isSchool } = useContext(AppContext)
@@ -46,6 +47,7 @@ const Home = () => {
         >ログアウト</Button>
         <Spacer />
       </VStack>
+      <MyFooter />
     </>
   )
 }

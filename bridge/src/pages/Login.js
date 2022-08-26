@@ -6,6 +6,7 @@ import presentImg from "../assets/present.png"
 import { useContext } from "react"
 import { AppContext } from "../contexts/AppContext"
 import LoginModal from "../components/LoginModal"
+import MyFooter from "../components/MyFooter"
 
 const Login = () => {
   const { setIsSchool } = useContext(AppContext)
@@ -70,17 +71,25 @@ const Login = () => {
         </HStack>
       </Box>
       <Center marginTop={320} marginBottom={100}>
-        <Box
+        <VStack
           boxShadow="2xl"
-          width={1000}
+          width="80%"
           padding={20}
           borderRadius={25}
+          spacing={10}
         >
           <Text fontSize={24} color="green">
             フードバンク<span style={{ color: "black", fontSize: "14px" }}>とは</span>
           </Text>
-        </Box>
+          <Text fontSize={18} textAlign="left" width="80%">
+            フードバンクとは、食品ロス削減・生活困窮者支援などを目的とする活動です。
+            主に企業や家庭で余ってしまった食品を寄付し、生活困窮者に無償で提供します。
+            「E-FOOD」ではその活動の教育現場での周知を進めるために、実際に学校の授業で
+            フードバンクを実践する補助をします。
+          </Text>
+        </VStack>
       </Center>
+      <MyFooter />
 
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />

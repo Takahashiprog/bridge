@@ -1,6 +1,7 @@
 import { Button, Input, HStack, VStack, Heading, Box, Text } from "@chakra-ui/react"
 import { useContext, useState, useEffect } from "react"
 import { useNavigate } from "react-router-dom"
+import MyHeader from "../components/MyHeader"
 import { AppContext } from "../contexts/AppContext"
 
 const Register = () => {
@@ -52,6 +53,7 @@ const Register = () => {
 
   return (
     <>
+      <MyHeader />
       <VStack spacing="20px" textAlign="left" marginTop="20px">
         <Heading size="md">商品登録</Heading>
         {food.map((val, i) =>

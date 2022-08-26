@@ -9,11 +9,11 @@ const History = () => {
   const dealList = [
     { "partner": "NPO JAPAN", "type": "apple", "num": 1 },
     { "partner": "foodbank sapporo", "type": "orange", "num": 100 },
+    { "partner": "NPO JAPAN", "type": "apple", "num": 1 },
     { "partner": "foodbank sapporo", "type": "orange", "num": 100 },
+    { "partner": "NPO JAPAN", "type": "apple", "num": 1 },
     { "partner": "foodbank sapporo", "type": "orange", "num": 100 },
-    { "partner": "foodbank sapporo", "type": "orange", "num": 100 },
-    { "partner": "foodbank sapporo", "type": "orange", "num": 100 },
-    { "partner": "foodbank sapporo", "type": "orange", "num": 100 },
+    { "partner": "NPO JAPAN", "type": "apple", "num": 1 },
   ]
 
   const seedList = dealList.map(() => Math.floor(Math.random() * 4))
@@ -27,9 +27,9 @@ const History = () => {
           // transform="scale(2)"
           position="absolute"
           zIndex={-1}
-          top="20%"
+          top="25%"
           width="100%"
-          height="60%"
+          height="55%"
           fit="cover"
         />
         <Heading size="md">いままでの記録</Heading>
@@ -50,8 +50,8 @@ const History = () => {
                 width={50}
               ></Box>
               <Box textAlign="left">
-                <Heading fontSize={18}>{val["partner"]}</Heading>
-                <Text fontSize={16}>{val["type"]}{val["num"]}</Text>
+                <Text fontSize={30}>{val["partner"]}<span style={{fontSize: 18}}> さん</span></Text>
+                <Text fontSize={22}>{val["type"]} を {val["num"]} 個</Text>
               </Box>
             </HStack>
           ))}
