@@ -12,7 +12,7 @@ const NearClient = () => {
   return (
     <>
       <Box>
-        <Heading size="md">相手一覧</Heading>
+        <Text fontSize="24px">相手一覧</Text>
         <Box textAlign="left" w="400px">
           {clientList.map((val) => (
             <Box marginTop="30px">

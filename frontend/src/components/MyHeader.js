@@ -23,7 +23,7 @@ const MyHeader = () => {
         backgroundColor="white"
         top="0"
         left="0"
-        zIndex="1"
+        zIndex="2"
         padding="5px 10px"
         boxShadow="md"
       >
