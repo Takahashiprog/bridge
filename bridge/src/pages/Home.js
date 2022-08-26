@@ -22,7 +22,7 @@ const Home = () => {
   return (
     <>
       <MyHeader />
-      <VStack spacing={20}>
+      <VStack spacing={40}>
         <FoodList />
         <NearClient />
         <History />

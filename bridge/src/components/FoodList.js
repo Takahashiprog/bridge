@@ -5,7 +5,7 @@ import dishImg from "../assets/dish.png"
 const FoodList = () => {
   return (
     <>
-      <Center height={800}>
+      <Center height={800} width="100vw">
         <Image
           src={mainImg}
           fit="cover"
@@ -19,7 +19,7 @@ const FoodList = () => {
           backgroundColor="white"
           borderRadius={25}
           height={600}
-          width={1000}
+          width="70%"
           padding={30}
         >
           <HStack>
