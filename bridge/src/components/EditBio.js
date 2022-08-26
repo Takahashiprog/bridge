@@ -54,7 +54,7 @@ const EditBio = () => {
     <>
       <Box>
         <Heading size="md">設定を変更</Heading>
-        <VStack spacing="30px" textAlign="left">
+        <VStack spacing={30} textAlign="left">
           <Spacer />
           <Box w="400px">
             <Text fontSize="sm">{isSchool ? "学校名" : "団体名"}</Text>

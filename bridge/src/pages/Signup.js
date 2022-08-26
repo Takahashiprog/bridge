@@ -2,7 +2,7 @@ import { useContext, useState } from "react"
 // import { Redirect } from "react-router-dom"
 import { AppContext } from "../contexts/AppContext"
 import { Input, Box, Text, Button, VStack, Center, Spacer} from "@chakra-ui/react"
-import { useNavigate } from "react-router-dom"
+import { useNavigate, Link } from "react-router-dom"
 import MyHeader from "../components/MyHeader"
 
 const Signup = () => {
@@ -44,37 +44,37 @@ const Signup = () => {
   return (
     <>
     <MyHeader />
-    <Center position="absolute" height="100vh" width="full" top="0">
+    <Center position="absolute" height="90vh" width="full" top="10vh">
       <VStack
         padding="40px 80px"
         textAlign="left"
-        borderRadius="25px"
+        borderRadius={25}
         boxShadow="2xl"
-        spacing="30px"
+        spacing={30}
       >
         <Text
-          fontSize="20px"
+          fontSize={20}
           display="inline"
-          paddingTop="5px"
+          paddingTop={5}
         >{isSchool ? "学校" : "団体"}アカウント作成</Text>
-        <Box w="400px">
-          <Text fontSize="14px">{isSchool ? "学校名" : "団体名"}</Text>
+        <Box width={400}>
+          <Text fontSize={14}>{isSchool ? "学校名" : "団体名"}</Text>
           <Input
             type="text"
             value={userName}
             onChange={handleUserName}
           />
         </Box>
-        <Box w="400px">
-          <Text fontSize="14px">住所</Text>
+        <Box width={400}>
+          <Text fontSize={14}>住所</Text>
           <Input
             type="text"
             value={address}
             onChange={handleAdress}
           />
         </Box>
-        <Box w="400px">
-          <Text fontSize="14px">パスワード</Text>
+        <Box width={400}>
+          <Text fontSize={14}>パスワード</Text>
           <Input
             type="password"
             value={pass}
@@ -82,67 +82,21 @@ const Signup = () => {
           />
         </Box>
         <Spacer />
-        <Button
-          width="150px"
-          borderRadius="full"
-          backgroundColor="#B9E3B2"
-          onClick={handleEndSignup}
-        >登録</Button>
+        <VStack spacing={5}>
+          <Button
+            width={150}
+            borderRadius="full"
+            backgroundColor="#B9E3B2"
+            boxShadow="md"
+            _hover={{boxShadow: "none"}}
+            onClick={handleEndSignup}
+          >登録</Button>
+          <Text fontSize={12}>アカウントをお持ちの方は
+          <Link to="/login" style={{ "color": "blue" }}>こちら</Link>
+          から</Text>
+        </VStack>
       </VStack>
     </Center>
-
-      {/* <VStack spacing="20px" textAlign="left" marginTop="20px">
-        <Heading size="md">サインアップ</Heading>
-        <RadioGroup onChange={handleRadio} value={isSchool}>
-          <HStack spacing="50px">
-            <Radio value={true} defaultChecked>わたす</Radio>
-            <Radio value={false}>うけとる</Radio>
-          </HStack>
-        </RadioGroup>
-        <Box w="400px">
-          <Text fontSize="sm">{isSchool ? "学校名" : "団体名"}</Text>
-          <Input
-            type="text"
-            value={userName}
-            onChange={handleUserName}
-          />
-        </Box>
-        {isSchool ? <></> : <>
-          <Box w="400px">
-            <Text fontSize="sm">住所</Text>
-            <Input
-              type="text"
-              value={address}
-              onChange={handleAdress}
-            />
-          </Box>
-        </>}
-        <Box w="400px">
-          <Text fontSize="sm">電話番号</Text>
-          <Input
-            type="tel"
-            value={phone}
-            onChange={handlePhone}
-          />
-        </Box>
-        <Box w="400px">
-          <Text fontSize="sm">パスワード</Text>
-          <Input
-            type="password"
-            value={pass}
-            onChange={handlePass}
-          />
-        </Box>
-        <Button
-          onClick={handleEndSignup}
-          colorScheme="blue"
-          width="200px"
-        >登録</Button>
-        <Button
-          width="200px"
-          onClick={() => {navigate("/login")}}
-        >ログイン画面へ</Button>
-      </VStack> */}
     </>
   )
 }

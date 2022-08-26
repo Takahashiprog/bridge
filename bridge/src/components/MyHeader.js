@@ -14,18 +14,18 @@ const MyHeader = () => {
         padding="5px 10px"
         boxShadow="md"
       >
-        <HStack width="full" justifyContent="space-between" paddingRight="15px">
-          <Image src={logoImg} height="80px" alt="logo"/>
+        <HStack width="full" justifyContent="space-between" paddingRight={15}>
+          <Image src={logoImg} height={20} alt="logo"/>
           <Input
-            width="200px"
-            height="35px"
+            width={200}
+            height={35}
             type="text"
             borderRadius="full"
-            placeholder="検索"
+            placeholder="学校名で検索"
           />
         </HStack>
       </Box>
-      <Box height="80px"></Box>
+      <Box height={20}></Box>
     </>
   )
 }

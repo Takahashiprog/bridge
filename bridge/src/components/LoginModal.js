@@ -37,45 +37,47 @@ const LoginModal = () => {
       <VStack
         padding="40px 100px"
         textAlign="left"
-        spacing="40px"
+        spacing={10}
       >
         <HStack justifyContent="center">
           <Image
             src={isSchool ? schoolImg : presentImg}
             alt="icon"
-            height="50px"
+            height={50}
             display="inline"
           />
           <Text
-            fontSize="24px"
+            fontSize={24}
             display="inline"
-            paddingTop="5px"
+            paddingTop={5}
           >{isSchool ? "送る" : "受け取る"}</Text>
         </HStack>
-        <Box w="300px">
-          <Text fontSize="14px">{isSchool ? "学校名" : "団体名"}</Text>
+        <Box width={300}>
+          <Text fontSize={14}>{isSchool ? "学校名" : "団体名"}</Text>
           <Input
             type="text"
             value={userName}
             onChange={handleUserName}
           />
         </Box>
-        <Box w="300px">
-          <Text fontSize="14px">パスワード</Text>
+        <Box width={300}>
+          <Text fontSize={14}>パスワード</Text>
           <Input
             type="password"
             value={pass}
             onChange={handlePass}
           />
         </Box>
-        <VStack spacing="20px">
+        <VStack spacing={5}>
           <Button
-            width="150px"
+            width={150}
             borderRadius="full"
             backgroundColor="#B9E3B2"
+            boxShadow="md"
+            _hover={{boxShadow: "none"}}
             onClick={handleEndLogin}
           >決定</Button>
-          <Text fontSize="12px">アカウントをお持ちでない方は
+          <Text fontSize={12}>アカウントをお持ちでない方は
             <Link to="/signup" style={{ "color": "blue" }}>こちら</Link>
             から</Text>
         </VStack>
