@@ -49,7 +49,7 @@ const LoginModal = () => {
           <Text
             fontSize={24}
             display="inline"
-            paddingTop={5}
+            paddingTop={1}
           >{isSchool ? "送る" : "受け取る"}</Text>
         </HStack>
         <Box width={300}>

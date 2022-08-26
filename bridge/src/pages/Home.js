@@ -1,17 +1,16 @@
 import { useContext, useEffect } from 'react'
-import EditBio from '../components/EditBio'
 import History from '../components/History'
 import Message from '../components/Message'
 import NearClient from '../components/NearClients'
 import { AppContext } from '../contexts/AppContext'
-import { Button, Spacer, VStack } from '@chakra-ui/react'
+import { Spacer, VStack } from '@chakra-ui/react'
 import { useNavigate } from 'react-router-dom'
 import MyHeader from '../components/MyHeader'
 import FoodList from '../components/FoodList'
 import MyFooter from '../components/MyFooter'
 
 const Home = () => {
-  const { isLogin, setIsLogin, isSchool } = useContext(AppContext)
+  const { isLogin } = useContext(AppContext)
   const navigate = useNavigate()
 
   useEffect(() => {
@@ -23,28 +22,11 @@ const Home = () => {
   return (
     <>
       <MyHeader />
-      <VStack spacing={40}>
+      <VStack spacing={40} overflowX="hidden">
         <FoodList />
         <NearClient />
         <History />
         <Message />
-        <EditBio />
-        <Spacer />
-        {isSchool ? <>
-          <Button
-            onClick={() => navigate("/register")}
-            colorScheme="blue"
-            width={200}
-          >商品登録へ</Button>
-        </> : <></>}
-        <Button
-          onClick={() => {
-            setIsLogin(false)
-            navigate("/login")
-          }}
-          colorScheme="red"
-          width={200}
-        >ログアウト</Button>
         <Spacer />
       </VStack>
       <MyFooter />

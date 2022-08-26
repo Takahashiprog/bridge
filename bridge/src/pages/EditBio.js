@@ -1,6 +1,7 @@
 import { useContext, useState } from "react"
 import { Button, Input, Text, Heading, VStack, Box, Spacer } from "@chakra-ui/react"
 import { AppContext } from "../contexts/AppContext"
+import { useNavigate } from "react-router-dom"
 
 
 const EditBio = () => {
@@ -17,6 +18,7 @@ const EditBio = () => {
   }
 
   const [newBio, setNewBio] = useState(myBio)
+  const navigate = useNavigate()
 
   const handleName = (e) => {
     setNewBio({ 
@@ -47,7 +49,7 @@ const EditBio = () => {
     // TODO post bio
 
     console.log(newBio)
-
+    navigate("/")
   }
 
   return (
@@ -88,6 +90,10 @@ const EditBio = () => {
           onClick={handleSaveBio}
           width="120px"
         >変更を保存</Button>
+        <Button 
+          onClick={() => navigate("/")}
+          width="120px"
+        >もどる</Button>
       </Box>
     </>
   )

@@ -1,17 +1,13 @@
-import { Box, HStack, Image, Input, Menu, MenuButton, MenuItem, MenuList, Button } from "@chakra-ui/react"
+import { Box, HStack, Image, Input, Menu, MenuButton, MenuItem, MenuList } from "@chakra-ui/react"
 import { useContext } from "react"
 import { useNavigate } from "react-router-dom"
 import logoImg from "../assets/logo.png"
 import { AppContext } from "../contexts/AppContext"
+import {GiHamburgerMenu} from "react-icons/gi"
 
 const MyHeader = () => {
   const { isLogin, setIsLogin } = useContext(AppContext)
   const navigate = useNavigate()
-
-  const handleLogout = () => {
-    setIsLogin(false)
-    navigate("/login")
-  }
 
   return (
     <>
@@ -29,10 +25,12 @@ const MyHeader = () => {
           <Image src={logoImg} height={20} alt="logo" />
           {isLogin ? (
             <Menu>
-              <MenuButton as={Button}></MenuButton>
+              <MenuButton><GiHamburgerMenu size={35} /></MenuButton>
               <MenuList>
+                <MenuItem onClick={() => navigate("/")}>ホーム</MenuItem>
                 <MenuItem onClick={() => navigate("/register")}>商品登録</MenuItem>
-                <MenuItem onClick={handleLogout}>ログアウト</MenuItem>
+                <MenuItem onClick={() => navigate("/edit")}>プロフィール変更</MenuItem>
+                <MenuItem onClick={() => navigate("/login")}>ログアウト</MenuItem>
               </MenuList>
             </Menu>
           ) : (

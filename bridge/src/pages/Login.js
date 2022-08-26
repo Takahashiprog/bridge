@@ -9,9 +9,11 @@ import LoginModal from "../components/LoginModal"
 import MyFooter from "../components/MyFooter"
 
 const Login = () => {
-  const { setIsSchool } = useContext(AppContext)
+  const { setIsSchool, setIsLogin } = useContext(AppContext)
   const { isOpen, onOpen, onClose } = useDisclosure()
 
+  setIsLogin(false)
+  
   return (
     <>
       <MyHeader />
