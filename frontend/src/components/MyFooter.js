@@ -9,7 +9,7 @@ const MyFooter = () => {
       >
         <Text
           color="white"
-          fontSize={20}
+          fontSize="20px"
           fontFamily="mono"
         >bridge</Text>
       </VStack>

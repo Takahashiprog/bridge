@@ -67,9 +67,9 @@ const EditBio = () => {
         <VStack
           padding="40px 80px"
           textAlign="left"
-          borderRadius={25}
+          borderRadius="25px"
           boxShadow="2xl"
-          spacing={30}
+          spacing="30px"
         >
           <Heading size="md">設定を変更</Heading>
           <Box w="400px">
@@ -88,9 +88,9 @@ const EditBio = () => {
             />
           </Box>
           <Spacer />
-          <VStack spacing={5}>
+          <VStack spacing="20px">
             <Button
-              width={150}
+              width="150px"
               borderRadius="full"
               backgroundColor="#B9E3B2"
               boxShadow="md"
@@ -98,7 +98,7 @@ const EditBio = () => {
               onClick={handleSaveBio}
             >変更を保存</Button>
             <Button
-              width={150}
+              width="150px"
               borderRadius="full"
               backgroundColor="#EEEEEE"
               boxShadow="md"

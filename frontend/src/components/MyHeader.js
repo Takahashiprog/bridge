@@ -30,15 +30,15 @@ const MyHeader = () => {
         <HStack width="full" justifyContent="space-between" paddingRight={15}>
           <Image 
             src={logoImg} 
-            height={20} 
+            height="80px"
             alt="logo"
             onClick={() => navigate("/")}
           />
           {isLogin ? (
-            <HStack spacing={12}>
-              <Text fontSize={20}>{myBio["name"]}<span style={{fontSize: 15}}> 様</span></Text>
+            <HStack spacing="30px">
+              <Text fontSize="20px">{myBio["name"]}<span style={{fontSize: 15}}> 様</span></Text>
               <Menu>
-                <MenuButton><GiHamburgerMenu size={35} /></MenuButton>
+                <MenuButton><GiHamburgerMenu size="35px" /></MenuButton>
                 <MenuList>
                   <MenuItem onClick={() => navigate("/")}>ホーム</MenuItem>
                   <MenuItem onClick={() => navigate("/register")}>商品登録</MenuItem>
@@ -49,8 +49,8 @@ const MyHeader = () => {
             </HStack>
           ) : (
             <Input
-              width={200}
-              height={35}
+              width="200px"
+              height="35px"
               type="text"
               borderRadius="full"
               placeholder="学校名で検索"
@@ -58,7 +58,7 @@ const MyHeader = () => {
           )}
         </HStack>
       </Box>
-      <Box height={20}></Box>
+      <Box height="80px"></Box>
     </>
   )
 }

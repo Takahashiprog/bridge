@@ -58,7 +58,7 @@ const Register = () => {
           height="100%"
           width="100%"
           fit="cover"
-          zIndex={-1}
+          zIndex="-1"
           opacity="0.7"
         />
         <VStack
@@ -68,6 +68,7 @@ const Register = () => {
           height="70%"
           width="70%"
           padding="50px"
+          borderRadius="25px"
         >
           <Heading
             size="md"
@@ -77,6 +78,7 @@ const Register = () => {
             height="55%"
             padding="40px"
             boxShadow="0px 0px 5px 5px #DDDDDD inset"
+            borderRadius="10px"
           >
             {food.map((val, i) =>
               <>
@@ -104,7 +106,7 @@ const Register = () => {
                     <Text fontSize="sm">{"　"}</Text>
                     <Button
                       onClick={(e) => handleDeleteFood(e, i)}
-                      width={70}
+                      width="70px"
                       borderRadius="full"
                       backgroundColor="#EEEEEE"
                       boxShadow="md"
@@ -119,7 +121,7 @@ const Register = () => {
           </VStack>
           <Button
             onClick={handleAddFood}
-            width={70}
+            width="70px"
             borderRadius="full"
             backgroundColor="#EEEEEE"
             boxShadow="md"
@@ -128,7 +130,7 @@ const Register = () => {
           <HStack spacing="20px" >
             <Button
               onClick={handleEndRegister}
-              width={150}
+              width="150px"
               borderRadius="full"
               backgroundColor="#B9E3B2"
               boxShadow="md"
@@ -136,7 +138,7 @@ const Register = () => {
             >登録</Button>
             <Button
               onClick={() => navigate("/")}
-              width={150}
+              width="150px"
               borderRadius="full"
               backgroundColor="#EEEEEE"
               boxShadow="md"

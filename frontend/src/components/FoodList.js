@@ -49,13 +49,19 @@ const FoodList = () => {
               fontSize="24px"
             >集めた食材一覧</Text>
           </HStack>
-          <TableContainer width="80%" overflowY="scroll" boxShadow="md" borderRadius="10px">
+          <TableContainer
+            width="80%"
+            overflowY="scroll"
+            boxShadow="0px 0px 10px 5px #F0F0F0 inset"
+            borderRadius="10px"
+          >
             <Table variant="simple">
-              <Thead 
-                position="sticky" 
-                top={0} 
+              <Thead
+                position="sticky"
+                top={0}
                 zIndex="1"
                 backgroundColor="#B9E3B2"
+                boxShadow="lg"
               >
                 <Tr>
                   <Th fontSize="16px" textAlign="center">種類</Th>
