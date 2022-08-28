@@ -1,6 +1,6 @@
 # bridge-backend
 
-## DBの起動方法
+## APIサーバーの起動方法
 
 `.env`を作成し以下のように記入する:
 
@@ -21,8 +21,3 @@ PORT=3000
 docker-compose up -d
 ```
 
-## APIサーバーの起動方法
-
-```shell
-go run .
-```
