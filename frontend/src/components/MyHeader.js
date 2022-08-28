@@ -1,4 +1,4 @@
-import { Box, HStack, Image, Input, Text, Menu, MenuButton, MenuItem, MenuList, InputGroup, InputLeftElement, Center } from "@chakra-ui/react"
+import { Box, HStack, Image, Input, Text, Menu, MenuButton, MenuItem, MenuList, InputGroup, InputLeftElement } from "@chakra-ui/react"
 import { useContext } from "react"
 import { useNavigate } from "react-router-dom"
 import logoImg from "../assets/logo.png"
