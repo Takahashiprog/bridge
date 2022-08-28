@@ -1,11 +1,13 @@
-import { Button, Input, HStack, VStack, Heading, Box, Text, Image, Center } from "@chakra-ui/react"
+import { Button, Input, HStack, VStack, Heading, Box, Text, Modal, ModalOverlay, ModalContent, useDisclosure,Center,Image } from "@chakra-ui/react"
 import { useContext, useState } from "react"
 import { useNavigate } from "react-router-dom"
+import MyModal from "../components/MyModal"
 import { AppContext } from "../contexts/AppContext"
 import tomatoImg from "../assets/tomato.png"
 
 const Register = () => {
   const { isLogin } = useContext(AppContext)
+  const { isOpen, onOpen, onClose } = useDisclosure()
   const navigate = useNavigate()
   const [food, setFood] = useState([
     { "type": "", "num": 1 },
@@ -40,13 +42,6 @@ const Register = () => {
     setFood(
       food.filter((_, i) => (i !== index))
     )
-  }
-
-  const handleEndRegister = () => {
-
-    // TODO post info
-
-    navigate("/")
   }
 
   return (
@@ -121,7 +116,7 @@ const Register = () => {
           <div style={{ marginButtom: "20px" }}></div>
           <HStack spacing="20px" >
             <Button
-              onClick={handleEndRegister}
+              onClick={onOpen}
               width={150}
               borderRadius="full"
               backgroundColor="#B9E3B2"
@@ -142,6 +137,13 @@ const Register = () => {
 
         </VStack>
       </Center>
+
+      <Modal isOpen={isOpen} onClose={onClose}>
+        <ModalOverlay />
+        <ModalContent padding="20px" borderRadius="25px">
+          <MyModal onClose={onClose} />
+        </ModalContent>
+      </Modal>
     </>
   )
 }
