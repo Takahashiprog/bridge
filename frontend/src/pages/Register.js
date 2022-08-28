@@ -3,6 +3,7 @@ import { useContext, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { AppContext } from "../contexts/AppContext"
 import tomatoImg from "../assets/tomato.png"
+import MyHeader from "../components/MyHeader"
 
 const Register = () => {
   const { isLogin } = useContext(AppContext)
@@ -51,7 +52,8 @@ const Register = () => {
 
   return (
     <>
-      <Center width="100%" height="100vh" position="relative">
+      <MyHeader />
+      <Center width="100%" height="91vh" position="relative">
         <Image
           src={tomatoImg}
           position="absolute"
