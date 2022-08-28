@@ -1,9 +1,10 @@
-import { Box, HStack, Image, Input, Text, Menu, MenuButton, MenuItem, MenuList } from "@chakra-ui/react"
+import { Box, HStack, Image, Input, Text, Menu, MenuButton, MenuItem, MenuList, InputGroup, InputLeftElement } from "@chakra-ui/react"
 import { useContext } from "react"
 import { useNavigate } from "react-router-dom"
 import logoImg from "../assets/logo.png"
 import { AppContext } from "../contexts/AppContext"
-import {GiHamburgerMenu} from "react-icons/gi"
+import { GiHamburgerMenu } from "react-icons/gi"
+import { AiOutlineSearch } from "react-icons/ai"
 
 const MyHeader = () => {
   const { isLogin } = useContext(AppContext)
@@ -23,22 +24,22 @@ const MyHeader = () => {
         backgroundColor="white"
         top="0"
         left="0"
-        zIndex="1"
+        zIndex="2"
         padding="5px 10px"
         boxShadow="md"
       >
         <HStack width="full" justifyContent="space-between" paddingRight={15}>
-          <Image 
-            src={logoImg} 
-            height={20} 
+          <Image
+            src={logoImg}
+            height="80px"
             alt="logo"
             onClick={() => navigate("/")}
           />
           {isLogin ? (
-            <HStack spacing={12}>
-              <Text fontSize={20}>{myBio["name"]}<span style={{fontSize: 15}}> 様</span></Text>
+            <HStack spacing="30px">
+              <Text fontSize="20px">{myBio["name"]}<span style={{ fontSize: 15 }}> 様</span></Text>
               <Menu>
-                <MenuButton><GiHamburgerMenu size={35} /></MenuButton>
+                <MenuButton><GiHamburgerMenu size="35px" /></MenuButton>
                 <MenuList>
                   <MenuItem onClick={() => navigate("/")}>ホーム</MenuItem>
                   <MenuItem onClick={() => navigate("/register")}>商品登録</MenuItem>
@@ -48,17 +49,23 @@ const MyHeader = () => {
               </Menu>
             </HStack>
           ) : (
-            <Input
-              width={200}
-              height={35}
-              type="text"
-              borderRadius="full"
-              placeholder="学校名で検索"
-            />
+            <InputGroup width="200px">
+              <InputLeftElement
+                pointerEvents="none"
+                children={<AiOutlineSearch size="18px" />}
+              />
+              <Input
+                width="200px"
+                height="35px"
+                type="text"
+                borderRadius="full"
+                placeholder="学校名で検索"
+              />
+            </InputGroup>
           )}
         </HStack>
       </Box>
-      <Box height={20}></Box>
+      <Box height="80px"></Box>
     </>
   )
 }
