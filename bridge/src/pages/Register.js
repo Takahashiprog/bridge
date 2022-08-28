@@ -1,10 +1,12 @@
-import { Button, Input, HStack, VStack, Heading, Box, Text } from "@chakra-ui/react"
+import { Button, Input, HStack, VStack, Heading, Box, Text, Modal, ModalOverlay, ModalContent, useDisclosure } from "@chakra-ui/react"
 import { useContext, useState } from "react"
 import { useNavigate } from "react-router-dom"
+import MyModal from "../components/MyModal"
 import { AppContext } from "../contexts/AppContext"
 
 const Register = () => {
   const { isLogin } = useContext(AppContext)
+  const { isOpen, onOpen, onClose } = useDisclosure()
   const navigate = useNavigate()
   const [food, setFood] = useState([
     { "type": "", "num": 1 },
@@ -39,13 +41,6 @@ const Register = () => {
     setFood(
       food.filter((_, i) => (i !== index))
     )
-  }
-
-  const handleEndRegister = () => {
-
-    // TODO post info
-
-    navigate("/")
   }
 
   return (
@@ -85,7 +80,7 @@ const Register = () => {
           width="100px"
         >+</Button>
         <Button
-          onClick={handleEndRegister}
+          onClick={onOpen}
           colorScheme="blue"
           width="200px"
         >登録</Button>
@@ -94,6 +89,13 @@ const Register = () => {
           width="200px"
         >もどる</Button>
       </VStack>
+
+      <Modal isOpen={isOpen} onClose={onClose}>
+        <ModalOverlay />
+        <ModalContent padding="20px" borderRadius="25px">
+          <MyModal onClose={onClose} />
+        </ModalContent>
+      </Modal>
     </>
   )
 }
