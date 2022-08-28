@@ -1,5 +1,3 @@
-version: '3'
-
 services:
   db:
     image: mysql:latest
@@ -8,15 +6,12 @@ services:
       - .env
   
   apiserver:
-    depends_on: 
+    depends_on:
       - db
-    build:
-      context: .
-      dockerfile: Dockerfile
-    restart: always
+    build: .
     ports:
-      - "8000:8080"
-    env_file: 
+      - "${PORT}:${PORT}"
+    env_file:
       - .env
-    environment: 
+    environment:
       MYSQL_ADDRESS: db
