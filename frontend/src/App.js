@@ -7,7 +7,7 @@ import Login from './pages/Login';
 import Register from './pages/Register';
 import ErrorFallback from './pages/ErrorBoundary';
 import AppContextProvider from './contexts/AppContext';
-import AppModal from './components/Appmodal';
+import EditBio from './pages/EditBio';
 
 function App() {
   return (
@@ -18,8 +18,7 @@ function App() {
           <Route path="/signup" element={<Signup />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
-          <Route path="/modaltest" element={<AppModal />} />
-          <Route component={<Home />} />
+          <Route path="/edit" element={<EditBio />} />
         </Routes>
       </BrowserRouter>
     </div>

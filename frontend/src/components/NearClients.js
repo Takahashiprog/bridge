@@ -12,12 +12,12 @@ const NearClient = () => {
   return (
     <>
       <Box>
-        <Heading size="md">近くの取引先一覧</Heading>
+        <Heading size="md">相手一覧</Heading>
         <Box textAlign="left" w="400px">
           {clientList.map((val) => (
             <Box marginTop="30px">
               <Heading size="sm">{val["name"]}</Heading>
-              <Text fontSize="md">所在地：{val["address"]}</Text>
+              {/* <Text fontSize="md">所在地：{val["address"]}</Text> */}
               <Text fontSize="md">{val["explain"]}</Text>
             </Box>
           ))}
