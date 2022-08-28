@@ -1,4 +1,4 @@
-import { Button, Input, HStack, VStack, Heading, Box, Text, Modal, ModalOverlay, ModalContent, useDisclosure,Center,Image } from "@chakra-ui/react"
+import { Button, Input, HStack, VStack, Heading, Box, Text, Modal, ModalOverlay, ModalContent, useDisclosure, Center, Image } from "@chakra-ui/react"
 import { useContext, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import MyModal from "../components/MyModal"
@@ -9,6 +9,7 @@ const Register = () => {
   const { isLogin } = useContext(AppContext)
   const { isOpen, onOpen, onClose } = useDisclosure()
   const navigate = useNavigate()
+  const setClass = useNavigate()
   const [food, setFood] = useState([
     { "type": "", "num": 1 },
   ])
@@ -24,6 +25,12 @@ const Register = () => {
       ))
     )
   }
+
+  const handleChangeClass = (e) => {
+    setClass(e.target.value)
+  }
+
+
 
   const handleNum = (e, index) => {
     setFood(
@@ -68,6 +75,16 @@ const Register = () => {
             size="md"
             mt="20px" >
             商品を登録</Heading>
+
+          <Box>
+            <Text fontSize="sm">クラス</Text>
+            <Input
+              type="text"
+              value={[""]}
+              backgroundColor="white"
+              onChange={(e) => handleChangeClass(e)}
+            />
+          </Box>
           {food.map((val, i) =>
             <>
               <HStack spacing="50px">
