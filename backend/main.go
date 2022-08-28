@@ -1,15 +1,18 @@
 package main
 
 import (
-	"github.com/gin-gonic/gin"
+	"github.com/labstack/echo/v4"
+	"github.com/labstack/echo/v4/middleware"
 )
 
 func main() {
+	e := echo.New()
 
-	r := gin.Default()
+	e.Use(middleware.Logger())
+	e.Use(middleware.Recover())
 
-	r.POST("/signup", signup)
-	r.POST("/login", login)
+	e.POST("/signup", signup)
+	e.POST("/login", login)
 
-	r.Run() // listen and serve on 0.0.0.0:8080 (for windows "localhost:8080")
+	e.Logger.Fatal(e.Start(":3000"))
 }

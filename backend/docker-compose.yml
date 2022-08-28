@@ -10,7 +10,7 @@ services:
       - db
     build: .
     ports:
-      - "${PORT}:${PORT}"
+      - "${PORT}:3000"
     env_file:
       - .env
     environment:
