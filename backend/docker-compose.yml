@@ -1,0 +1,17 @@
+services:
+  db:
+    image: mysql:latest
+    restart: always
+    env_file:
+      - .env
+  
+  apiserver:
+    depends_on:
+      - db
+    build: .
+    ports:
+      - "${PORT}:${PORT}"
+    env_file:
+      - .env
+    environment:
+      MYSQL_ADDRESS: db
