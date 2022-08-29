@@ -1,13 +1,16 @@
-import { Button, Input, HStack, VStack, Heading, Box, Text, Image, Center } from "@chakra-ui/react"
+import { Button, Input, HStack, VStack, Heading, Box, Text, Modal, ModalOverlay, ModalContent, useDisclosure, Center, Image } from "@chakra-ui/react"
 import { useContext, useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
+import MyModal from "../components/MyModal"
 import { AppContext } from "../contexts/AppContext"
 import tomatoImg from "../assets/tomato.png"
 import MyHeader from "../components/MyHeader"
 
 const Register = () => {
   const { isLogin } = useContext(AppContext)
+  const { isOpen, onOpen, onClose } = useDisclosure()
   const navigate = useNavigate()
+  const setClass = useNavigate()
   const [food, setFood] = useState([
     { "type": "", "num": 1 },
   ])
@@ -25,6 +28,12 @@ const Register = () => {
       ))
     )
   }
+
+  const handleChangeClass = (e) => {
+    setClass(e.target.value)
+  }
+
+
 
   const handleNum = (e, index) => {
     setFood(
@@ -88,6 +97,15 @@ const Register = () => {
             boxShadow="0px 0px 5px 5px #DDDDDD inset"
             borderRadius="10px"
           >
+          <Box>
+              <Text fontSize="sm">クラス</Text>
+              <Input
+                type="text"
+                value={[""]}
+                backgroundColor="white"
+                onChange={(e) => handleChangeClass(e)}
+              />
+            </Box>
             {food.map((val, i) =>
               <>
                 <HStack spacing="30px">
@@ -137,8 +155,8 @@ const Register = () => {
           >+</Button>
           <HStack spacing="20px" >
             <Button
-              onClick={handleEndRegister}
-              width="150px"
+              onClick={onOpen}
+              width={150}
               borderRadius="full"
               backgroundColor="#B9E3B2"
               boxShadow="md"
@@ -155,6 +173,13 @@ const Register = () => {
           </HStack>
         </VStack>
       </Center>
+
+      <Modal isOpen={isOpen} onClose={onClose}>
+        <ModalOverlay />
+        <ModalContent padding="20px" borderRadius="25px">
+          <MyModal onClose={onClose} />
+        </ModalContent>
+      </Modal>
     </>
   )
 }
