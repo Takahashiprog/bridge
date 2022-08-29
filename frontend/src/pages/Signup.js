@@ -25,18 +25,17 @@ const Signup = () => {
     setAdress(e.target.value)
   }
 
-  // const handlePhone = (e) => {
-  //   setPhone(e.target.value)
-  // }
-
   const handlePass = (e) => {
     setPass(e.target.value)
   }
 
   const handleEndSignup = () => {
+    const existInfo = JSON.parse(localStorage.getItem("userInfo"))["users"]
 
-    // TODO post info
+    
 
+    const userInfo = {"users": [...existInfo, {"name": userName, "address": address, "pass": pass}]}
+    localStorage.setItem("userInfo", JSON.stringify(userInfo))
     setIsLogin(true)
     navigate("/")
   }

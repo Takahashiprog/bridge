@@ -20,16 +20,16 @@ const LoginModal = () => {
   }
 
   const handlePass = (e) => {
-    console.log(isSchool)
     setPass(e.target.value)
   }
 
   const handleEndLogin = () => {
-
-    // check pass
-
-    setIsLogin(true)
-    navigate("/")
+    const userInfo = JSON.parse(localStorage.getItem("userInfo"))
+    console.log(userInfo)
+    if(userInfo["name"] === userName && userInfo["pass"] === pass){
+      setIsLogin(true)
+      navigate("/")
+    }
   }
 
   return (
