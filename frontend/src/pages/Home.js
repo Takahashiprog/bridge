@@ -10,7 +10,7 @@ import FoodList from '../components/FoodList'
 import MyFooter from '../components/MyFooter'
 
 const Home = () => {
-  const { isLogin } = useContext(AppContext)
+  const { isLogin, isSchool } = useContext(AppContext)
   const navigate = useNavigate()
 
   useEffect(() => {
@@ -23,7 +23,7 @@ const Home = () => {
     <>
       <MyHeader />
       <VStack spacing="160px" overflowX="hidden">
-        <FoodList />
+        {isSchool ? <FoodList /> : <Spacer />}
         <NearClient />
         <History />
         <Message />

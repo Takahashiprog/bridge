@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useNavigate } from "react-router-dom"
 import {
   ModalHeader,
@@ -9,17 +9,19 @@ import {
   Text,
   HStack,
 } from '@chakra-ui/react'
+import { AppContext } from "../contexts/AppContext";
 
 const MyModal = (props) => {
+  const {loginName} = useContext(AppContext)
   const navigate = useNavigate()
 
   const handleEndRegister = () => {
-    const foodJson = JSON.parse(localStorage.getItem("foodInfo"))
+    const foodJson = JSON.parse(localStorage.getItem(loginName))
     let foodInfo = []
     if(foodJson){
       foodInfo = foodJson["foods"]
     }
-    localStorage.setItem("foodInfo", JSON.stringify({"foods": [...foodInfo, ...props.food]}))
+    localStorage.setItem(loginName, JSON.stringify({"foods": [...foodInfo, ...props.food]}))
 
     navigate("/")
   }

@@ -1,11 +1,14 @@
 import { Center, HStack, Image, Table, TableContainer, Tbody, Td, Th, Text, Thead, Tr, VStack, Spacer } from "@chakra-ui/react"
 import mainImg from "../assets/main.jpg"
 import dishImg from "../assets/dish.png"
+import { useContext } from "react"
+import { AppContext } from "../contexts/AppContext"
 
 const FoodList = () => {
-  const foodJson = JSON.parse(localStorage.getItem("foodInfo"))
-  let foodList = [{"type": "登録された食材はまだありません", "num": ""}]
-  if(foodJson){
+  const { loginName } = useContext(AppContext)
+  const foodJson = JSON.parse(localStorage.getItem(loginName))
+  let foodList = [{ "type": "登録された食材はまだありません", "num": "" }]
+  if (foodJson) {
     foodList = foodJson["foods"]
   }
 

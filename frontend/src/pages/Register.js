@@ -5,9 +5,10 @@ import MyModal from "../components/MyModal"
 import { AppContext } from "../contexts/AppContext"
 import tomatoImg from "../assets/tomato.png"
 import MyHeader from "../components/MyHeader"
+import { GrAdd, GrClose } from "react-icons/gr"
 
 const Register = () => {
-  const { isLogin } = useContext(AppContext)
+  const { isLogin, isSchool } = useContext(AppContext)
   const { isOpen, onOpen, onClose } = useDisclosure()
   const navigate = useNavigate()
   const setClass = useNavigate()
@@ -19,7 +20,10 @@ const Register = () => {
     if (!isLogin) {
       navigate("/login")
     }
-  }, [isLogin, navigate])
+    if (!isSchool) {
+      navigate("/")
+    }
+  }, [isLogin, isSchool, navigate])
 
   const handleChangeFood = (e, index) => {
     setFood(
@@ -32,8 +36,6 @@ const Register = () => {
   const handleChangeClass = (e) => {
     setClass(e.target.value)
   }
-
-
 
   const handleNum = (e, index) => {
     setFood(
@@ -86,7 +88,7 @@ const Register = () => {
             boxShadow="0px 0px 5px 5px #DDDDDD inset"
             borderRadius="10px"
           >
-          <Box>
+            <Box>
               <Text fontSize="sm">クラス</Text>
               <Input
                 type="text"
@@ -127,7 +129,7 @@ const Register = () => {
                       boxShadow="md"
                       _hover={{ boxShadow: "none" }}
                     >
-                      ×
+                      <GrClose />
                     </Button>
                   </Box>
                 </HStack>
@@ -141,7 +143,7 @@ const Register = () => {
             backgroundColor="#EEEEEE"
             boxShadow="md"
             _hover={{ boxShadow: "none" }}
-          >+</Button>
+          ><GrAdd /></Button>
           <HStack spacing="20px" >
             <Button
               onClick={onOpen}

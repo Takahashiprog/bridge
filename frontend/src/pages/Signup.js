@@ -9,6 +9,7 @@ const Signup = () => {
   const {
     isSchool,
     setIsLogin,
+    setLoginName,
   } = useContext(AppContext)
 
   const [userName, setUserName] = useState("")
@@ -37,10 +38,12 @@ const Signup = () => {
     }
 
     // すでに登録されてるかチェック
+    if(!userName || !address || !pass) return 0
 
     const userInfo = {"users": [...existInfo, {"name": userName, "address": address, "pass": pass}]}
     localStorage.setItem("userInfo", JSON.stringify(userInfo))
     setIsLogin(true)
+    setLoginName(userName)
     navigate("/")
   }
 
