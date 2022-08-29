@@ -30,9 +30,13 @@ const Signup = () => {
   }
 
   const handleEndSignup = () => {
-    const existInfo = JSON.parse(localStorage.getItem("userInfo"))["users"]
+    const existJson = JSON.parse(localStorage.getItem("userInfo"))
+    let existInfo = []
+    if(existJson){
+      existInfo = existJson["users"]
+    }
 
-    
+    // すでに登録されてるかチェック
 
     const userInfo = {"users": [...existInfo, {"name": userName, "address": address, "pass": pass}]}
     localStorage.setItem("userInfo", JSON.stringify(userInfo))

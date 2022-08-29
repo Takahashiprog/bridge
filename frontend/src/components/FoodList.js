@@ -3,19 +3,11 @@ import mainImg from "../assets/main.jpg"
 import dishImg from "../assets/dish.png"
 
 const FoodList = () => {
-  const foodList = [
-    { "type": "apple", "num": 1 },
-    { "type": "apple", "num": 1 },
-    { "type": "apple", "num": 1 },
-    { "type": "apple", "num": 1 },
-    { "type": "apple", "num": 1 },
-    { "type": "apple", "num": 1 },
-    { "type": "apple", "num": 1 },
-    { "type": "apple", "num": 1 },
-    { "type": "apple", "num": 1 },
-    { "type": "apple", "num": 1 },
-    { "type": "apple", "num": 1 },
-  ]
+  const foodJson = JSON.parse(localStorage.getItem("foodInfo"))
+  let foodList = [{"type": "登録された食材はまだありません", "num": ""}]
+  if(foodJson){
+    foodList = foodJson["foods"]
+  }
 
   return (
     <>

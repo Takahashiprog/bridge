@@ -1,5 +1,5 @@
 import { Button, Input, HStack, VStack, Heading, Box, Text, Image, Center } from "@chakra-ui/react"
-import { useContext, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { AppContext } from "../contexts/AppContext"
 import tomatoImg from "../assets/tomato.png"
@@ -12,9 +12,11 @@ const Register = () => {
     { "type": "", "num": 1 },
   ])
 
-  if (!isLogin) {
-    // return <Redirect to="/login" />
-  }
+  useEffect(() => {
+    if (!isLogin) {
+      navigate("/login")
+    }
+  }, [isLogin, navigate])
 
   const handleChangeFood = (e, index) => {
     setFood(
@@ -44,8 +46,12 @@ const Register = () => {
   }
 
   const handleEndRegister = () => {
-
-    // TODO post info
+    const foodJson = JSON.parse(localStorage.getItem("foodInfo"))
+    let foodInfo = []
+    if(foodJson){
+      foodInfo = foodJson["foods"]
+    }
+    localStorage.setItem("foodInfo", JSON.stringify({"foods": [...foodInfo, ...food]}))
 
     navigate("/")
   }

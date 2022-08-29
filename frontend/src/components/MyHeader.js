@@ -7,14 +7,14 @@ import { GiHamburgerMenu } from "react-icons/gi"
 import { AiOutlineSearch } from "react-icons/ai"
 
 const MyHeader = () => {
-  const { isLogin } = useContext(AppContext)
+  const { isLogin, loginName } = useContext(AppContext)
   const navigate = useNavigate()
 
-  const myBio = {
-    "name": "NPO JAPAN",
-    "address": "東京",
-    "explain": "日本最大のフードバンク団体です"
-  }
+  // const myBio = {
+  //   "name": "NPO JAPAN",
+  //   "address": "東京",
+  //   "explain": "日本最大のフードバンク団体です"
+  // }
 
   return (
     <>
@@ -37,7 +37,7 @@ const MyHeader = () => {
           />
           {isLogin ? (
             <HStack spacing="30px">
-              <Text fontSize="20px">{myBio["name"]}<span style={{ fontSize: 15 }}> 様</span></Text>
+              <Text fontSize="20px">{loginName}<span style={{ fontSize: 15 }}> 様</span></Text>
               <Menu>
                 <MenuButton><GiHamburgerMenu size="35px" /></MenuButton>
                 <MenuList>
