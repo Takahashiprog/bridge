@@ -11,8 +11,8 @@ func main() {
 	e.Use(middleware.Logger())
 	e.Use(middleware.Recover())
 
-	e.POST("/signup", signup)
-	e.POST("/login", login)
+	e.POST("/schools/signup", signup)
+	e.POST("/schools/login", login)
 
 	e.Logger.Fatal(e.Start(":3000"))
 }
