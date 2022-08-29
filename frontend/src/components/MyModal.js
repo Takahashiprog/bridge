@@ -14,10 +14,14 @@ const MyModal = (props) => {
   const navigate = useNavigate()
 
   const handleEndRegister = () => {
+    const foodJson = JSON.parse(localStorage.getItem("foodInfo"))
+    let foodInfo = []
+    if(foodJson){
+      foodInfo = foodJson["foods"]
+    }
+    localStorage.setItem("foodInfo", JSON.stringify({"foods": [...foodInfo, ...props.food]}))
 
-    // TODO post register
-
-    navigate("/")    
+    navigate("/")
   }
 
   return (

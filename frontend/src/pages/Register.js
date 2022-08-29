@@ -54,17 +54,6 @@ const Register = () => {
     )
   }
 
-  const handleEndRegister = () => {
-    const foodJson = JSON.parse(localStorage.getItem("foodInfo"))
-    let foodInfo = []
-    if(foodJson){
-      foodInfo = foodJson["foods"]
-    }
-    localStorage.setItem("foodInfo", JSON.stringify({"foods": [...foodInfo, ...food]}))
-
-    navigate("/")
-  }
-
   return (
     <>
       <MyHeader />
@@ -177,7 +166,7 @@ const Register = () => {
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
         <ModalContent padding="20px" borderRadius="25px">
-          <MyModal onClose={onClose} />
+          <MyModal onClose={onClose} food={food} />
         </ModalContent>
       </Modal>
     </>
