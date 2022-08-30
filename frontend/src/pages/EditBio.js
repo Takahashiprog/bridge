@@ -26,7 +26,7 @@ const EditBio = () => {
     if (!isLogin) {
       navigate("/login")
     }
-    if (!isSchool) {
+    if (isSchool) {
       navigate("/")
     }
   }, [isLogin, isSchool, navigate])

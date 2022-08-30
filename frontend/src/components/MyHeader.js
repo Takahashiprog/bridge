@@ -20,12 +20,6 @@ const MyHeader = () => {
   } = useContext(AppContext)
   const navigate = useNavigate()
 
-  // const myBio = {
-  //   "name": "NPO JAPAN",
-  //   "address": "東京",
-  //   "explain": "日本最大のフードバンク団体です"
-  // }
-
   const schoolList = [
     "第一高校",
     "第二中学",
