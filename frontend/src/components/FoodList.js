@@ -66,8 +66,8 @@ const FoodList = () => {
               {foodList.map((val) => (
                 <Tbody>
                   <Tr>
-                    <Td fontSize="20px" textAlign="left">{val["type"]}</Td>
-                    <Td fontSize="20px" textAlign="center">{val["num"]}</Td>
+                    <Td fontSize="17px" textAlign="left">{val["type"]}</Td>
+                    <Td fontSize="17px" textAlign="center">{val["num"]}</Td>
                   </Tr>
                 </Tbody>
               ))}

@@ -18,7 +18,7 @@ const Recommend = () => {
           width="300px"
           height="40px"
           borderRadius="full"
-        ><Heading fontSize="14px">推奨する食品</Heading></Center>
+        ><Text fontSize="14px" as='b'>推奨する食品</Text></Center>
         <HStack spacing="60px">
           <Image
             src={pastaImg}
@@ -42,10 +42,10 @@ const Recommend = () => {
           width="300px"
           height="40px"
           borderRadius="full"
-        ><Heading fontSize="14px">非推奨な食品</Heading></Center>
+        ><Text fontSize="14px" as='b'>非推奨な食品</Text></Center>
         <HStack spacing="60px">
-          <Image 
-            src={beefImg} 
+          <Image
+            src={beefImg}
             alt="beef"
             width="150px"
             height="150px"
