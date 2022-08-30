@@ -8,22 +8,23 @@ import { useNavigate } from 'react-router-dom'
 import MyHeader from '../components/MyHeader'
 import FoodList from '../components/FoodList'
 import MyFooter from '../components/MyFooter'
+import Recommend from '../components/Recommend'
 
 const Home = () => {
   const { isLogin, isSchool } = useContext(AppContext)
   const navigate = useNavigate()
 
   useEffect(() => {
-    if (!isLogin) {
-      navigate("/login")
-    }
+    // if (!isLogin) {
+    //   navigate("/login")
+    // }
   }, [isLogin, navigate])
 
   return (
     <>
       <MyHeader />
       <VStack spacing="160px" overflowX="hidden">
-        {isSchool ? <FoodList /> : <Spacer />}
+        {isSchool ? <><FoodList /><Recommend /></> : <Spacer />}
         <NearClient />
         <History />
         <Message />
