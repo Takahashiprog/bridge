@@ -21,7 +21,7 @@ const History = () => {
   return (
     <>
       <VStack position="relative" padding="10px" width="full" spacing="50px">
-        <Image
+        {/* <Image
           src={paperImg}
           transform="rotateZ(5deg) scale(2)"
           position="absolute"
@@ -30,7 +30,7 @@ const History = () => {
           width="100%"
           height="55%"
           fit="cover"
-        />
+        /> */}
         <Text fontSize="24px">いままでの記録</Text>
         <SimpleGrid columns={2} spacing="80px" marginTop="80px">
           {dealList.map((val, idx) => (
@@ -49,8 +49,8 @@ const History = () => {
                 width="50px"
               ></Box>
               <Box textAlign="left">
-                <Text fontSize="24px">{val["partner"]}<span style={{fontSize: "16px"}}> さん</span></Text>
-                <Text fontSize="18px">{val["type"]} を {val["num"]} 個</Text>
+                <Text fontSize="18px">{val["partner"]}<span style={{ fontSize: "16px" }}> さん へ</span></Text>
+                <Text fontSize="15px">{val["type"]} を {val["num"]} 個</Text>
               </Box>
             </HStack>
           ))}

@@ -8,15 +8,15 @@ import { GiHamburgerMenu } from "react-icons/gi"
 import { AiOutlineSearch } from "react-icons/ai"
 
 const MyHeader = () => {
-  const { 
+  const {
     isLogin,
-    setIsLogin, 
-    loginName, 
-    setLoginName, 
-    isReadOnly, 
-    setIsReadOnly, 
-    isSchool, 
-    setIsSchool 
+    setIsLogin,
+    loginName,
+    setLoginName,
+    isReadOnly,
+    setIsReadOnly,
+    isSchool,
+    setIsSchool
   } = useContext(AppContext)
   const navigate = useNavigate()
 
@@ -51,7 +51,7 @@ const MyHeader = () => {
         <HStack width="full" justifyContent="space-between" paddingRight={15}>
           <Image
             src={logoImg}
-            height="80px"
+            height="70px"
             alt="logo"
             onClick={() => navigate("/")}
           />
@@ -62,19 +62,19 @@ const MyHeader = () => {
                 <MenuButton><GiHamburgerMenu size="35px" /></MenuButton>
                 <MenuList>
                   <MenuItem onClick={() => navigate("/")}>ホーム</MenuItem>
-                  {isSchool && !isReadOnly ? 
+                  {isSchool && !isReadOnly ?
                     <MenuItem onClick={() => navigate("/register")}>商品登録</MenuItem>
-                  : <></>}
-                  {!isSchool ? 
+                    : <></>}
+                  {!isSchool ?
                     <MenuItem onClick={() => navigate("/edit")}>プロフィール変更</MenuItem>
-                  : <></>}
-                  <MenuItem onClick={() => {setIsReadOnly(false);navigate("/login")}}>ログアウト</MenuItem>
+                    : <></>}
+                  <MenuItem onClick={() => { setIsReadOnly(false); navigate("/login") }}>ログアウト</MenuItem>
                 </MenuList>
               </Menu>
             </HStack>
           ) : (
             <Menu>
-              <MenuButton 
+              <MenuButton
                 as={Button}
                 textAlign="left"
                 width="200px"
