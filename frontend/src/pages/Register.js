@@ -11,7 +11,7 @@ const Register = () => {
   const { isLogin, isSchool } = useContext(AppContext)
   const { isOpen, onOpen, onClose } = useDisclosure()
   const navigate = useNavigate()
-  const setClass = useNavigate()
+  const [cls, setCls] = useState("")
   const [food, setFood] = useState([
     { "type": "", "num": 1 },
   ])
@@ -31,10 +31,6 @@ const Register = () => {
         { "type": e.target.value, "num": val["num"] } : val
       ))
     )
-  }
-
-  const handleChangeClass = (e) => {
-    setClass(e.target.value)
   }
 
   const handleNum = (e, index) => {
@@ -92,9 +88,9 @@ const Register = () => {
               <Text fontSize="sm">クラス</Text>
               <Input
                 type="text"
-                value={[""]}
+                value={cls}
                 backgroundColor="white"
-                onChange={(e) => handleChangeClass(e)}
+                onChange={(e) => setCls(e.target.value)}
               />
             </Box>
             {food.map((val, i) =>

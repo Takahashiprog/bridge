@@ -8,8 +8,18 @@ import { useNavigate } from 'react-router-dom'
 import MyHeader from '../components/MyHeader'
 import FoodList from '../components/FoodList'
 import MyFooter from '../components/MyFooter'
+// import axios from "axios"
 
 const Home = () => {
+  // axios({
+  //   headers: {
+  //     "Access-Control-Allow-Origin": "*",
+  //     "Access-Control-Allow-Methods": "POST,GET,PUT,DELETE",
+  //     "Access-Control-Allow-Headers": "Content-Type"
+  //   },
+  // })
+  // console.log(axios.post("http://localhost:3000/schools/signup", {"school_id": "aaa", "password": "aaa"}))
+
   const { isLogin, isSchool } = useContext(AppContext)
   const navigate = useNavigate()
 
