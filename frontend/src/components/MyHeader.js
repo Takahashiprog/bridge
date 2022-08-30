@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom"
 import logoImg from "../assets/logo.png"
 import { AppContext } from "../contexts/AppContext"
 import { GiHamburgerMenu } from "react-icons/gi"
-// import { AiOutlineSearch } from "react-icons/ai"
+import { AiOutlineSearch } from "react-icons/ai"
 
 const MyHeader = () => {
   const { 
@@ -74,7 +74,7 @@ const MyHeader = () => {
                   {!isSchool ? 
                     <MenuItem onClick={() => navigate("/edit")}>プロフィール変更</MenuItem>
                   : <></>}
-                  <MenuItem onClick={() => navigate("/login")}>ログアウト</MenuItem>
+                  <MenuItem onClick={() => {setIsReadOnly(false);navigate("/login")}}>ログアウト</MenuItem>
                 </MenuList>
               </Menu>
             </HStack>
@@ -82,15 +82,17 @@ const MyHeader = () => {
             <Menu>
               <MenuButton 
                 as={Button}
-                width="150px"
+                textAlign="left"
+                width="200px"
                 borderRadius="full"
                 backgroundColor="#EEEEEE"
                 boxShadow="md"
                 fontSize="14px"
                 _hover={{ boxShadow: "none" }}
+                leftIcon={<AiOutlineSearch size="20px" />}
                 rightIcon={<ChevronDownIcon />}
               >
-                学校名で検索
+                学校名で探す
               </MenuButton>
               <MenuList overflowY="scroll" maxHeight="300px">
                 {schoolList.map((val) => (
@@ -99,20 +101,6 @@ const MyHeader = () => {
               </MenuList>
             </Menu>
           )}
-            {/* <InputGroup width="200px" padding="2px">
-              <InputRightElement
-                pointerEvents="none"
-                children={<AiOutlineSearch size="18px" />}
-                onClick={() => {}}
-              />
-              <Input
-                width="200px"
-                height="35px"
-                type="text"
-                borderRadius="full"
-                placeholder="学校名で検索"
-              />
-            </InputGroup> */}
         </HStack>
       </Box>
       <Box height="80px"></Box>
