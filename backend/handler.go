@@ -12,11 +12,6 @@ import (
 	"github.com/takahashiprog/bridge/backend/model"
 )
 
-type loginInput struct {
-	email    string `json:"email" binding:"required"`
-	password string `json:"password" binding:"required"`
-}
-
 type jwtCustomClaims struct {
 	ID       uint   `json:"id"`
 	SchoolID string `json:"school_id"`
