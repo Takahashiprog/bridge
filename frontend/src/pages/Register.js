@@ -1,23 +1,29 @@
 import { Button, Input, HStack, VStack, Heading, Box, Text, Modal, ModalOverlay, ModalContent, useDisclosure, Center, Image } from "@chakra-ui/react"
-import { useContext, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import MyModal from "../components/MyModal"
 import { AppContext } from "../contexts/AppContext"
 import tomatoImg from "../assets/tomato.png"
 import MyHeader from "../components/MyHeader"
+import { GrAdd, GrClose } from "react-icons/gr"
 
 const Register = () => {
-  const { isLogin } = useContext(AppContext)
+  const { isLogin, isSchool } = useContext(AppContext)
   const { isOpen, onOpen, onClose } = useDisclosure()
   const navigate = useNavigate()
-  const setClass = useNavigate()
+  const [cls, setCls] = useState("")
   const [food, setFood] = useState([
     { "type": "", "num": 1 },
   ])
 
-  if (!isLogin) {
-    // return <Redirect to="/login" />
-  }
+  useEffect(() => {
+    if (!isLogin) {
+      navigate("/login")
+    }
+    if (!isSchool) {
+      navigate("/")
+    }
+  }, [isLogin, isSchool, navigate])
 
   const handleChangeFood = (e, index) => {
     setFood(
@@ -26,12 +32,6 @@ const Register = () => {
       ))
     )
   }
-
-  const handleChangeClass = (e) => {
-    setClass(e.target.value)
-  }
-
-
 
   const handleNum = (e, index) => {
     setFood(
@@ -84,13 +84,13 @@ const Register = () => {
             boxShadow="0px 0px 5px 5px #DDDDDD inset"
             borderRadius="10px"
           >
-          <Box>
+            <Box>
               <Text fontSize="sm">クラス</Text>
               <Input
                 type="text"
-                value={[""]}
+                value={cls}
                 backgroundColor="white"
-                onChange={(e) => handleChangeClass(e)}
+                onChange={(e) => setCls(e.target.value)}
               />
             </Box>
             {food.map((val, i) =>
@@ -125,7 +125,7 @@ const Register = () => {
                       boxShadow="md"
                       _hover={{ boxShadow: "none" }}
                     >
-                      ×
+                      <GrClose />
                     </Button>
                   </Box>
                 </HStack>
@@ -139,7 +139,7 @@ const Register = () => {
             backgroundColor="#EEEEEE"
             boxShadow="md"
             _hover={{ boxShadow: "none" }}
-          >+</Button>
+          ><GrAdd /></Button>
           <HStack spacing="20px" >
             <Button
               onClick={onOpen}
@@ -164,7 +164,7 @@ const Register = () => {
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
         <ModalContent padding="20px" borderRadius="25px">
-          <MyModal onClose={onClose} />
+          <MyModal onClose={onClose} food={food} />
         </ModalContent>
       </Modal>
     </>

@@ -9,6 +9,7 @@ const LoginModal = () => {
   const {
     isSchool,
     setIsLogin,
+    setLoginName
   } = useContext(AppContext)
 
   const [userName, setUserName] = useState("")
@@ -20,16 +21,27 @@ const LoginModal = () => {
   }
 
   const handlePass = (e) => {
-    console.log(isSchool)
     setPass(e.target.value)
   }
 
   const handleEndLogin = () => {
+    const userJson = JSON.parse(localStorage.getItem("userInfo"))
+    let userInfo = []
+    if (userJson) {
+      userInfo = userJson["users"]
+    }
+    for (let i = 0; i < userInfo.length; i++) {
+      if (userInfo[i]["name"] === userName && userInfo[i]["pass"] === pass) {
+        setIsLogin(true)
+        setLoginName(userName)
+        navigate("/")
+        return 0
+      }
+    }
 
-    // check pass
+    // fail login
+    console.log("fail")
 
-    setIsLogin(true)
-    navigate("/")
   }
 
   return (
@@ -74,7 +86,7 @@ const LoginModal = () => {
             borderRadius="full"
             backgroundColor="#B9E3B2"
             boxShadow="md"
-            _hover={{boxShadow: "none"}}
+            _hover={{ boxShadow: "none" }}
             onClick={handleEndLogin}
           >決定</Button>
           <Text fontSize="12px">アカウントをお持ちでない方は

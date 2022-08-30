@@ -26,7 +26,10 @@ const EditBio = () => {
     if (!isLogin) {
       navigate("/login")
     }
-  }, [isLogin, navigate])
+    if (isSchool) {
+      navigate("/")
+    }
+  }, [isLogin, isSchool, navigate])
 
   const handleName = (e) => {
     setNewBio({
@@ -73,7 +76,7 @@ const EditBio = () => {
         >
           <Heading size="md">設定を変更</Heading>
           <Box w="400px">
-            <Text fontSize="sm">{isSchool ? "学校名" : "団体名"}</Text>
+            <Text fontSize="sm">団体名</Text>
             <Input
               type="text"
               value={newBio["name"]}

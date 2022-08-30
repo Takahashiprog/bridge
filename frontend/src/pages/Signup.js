@@ -9,6 +9,7 @@ const Signup = () => {
   const {
     isSchool,
     setIsLogin,
+    setLoginName,
   } = useContext(AppContext)
 
   const [userName, setUserName] = useState("")
@@ -25,19 +26,24 @@ const Signup = () => {
     setAdress(e.target.value)
   }
 
-  // const handlePhone = (e) => {
-  //   setPhone(e.target.value)
-  // }
-
   const handlePass = (e) => {
     setPass(e.target.value)
   }
 
   const handleEndSignup = () => {
+    const existJson = JSON.parse(localStorage.getItem("userInfo"))
+    let existInfo = []
+    if(existJson){
+      existInfo = existJson["users"]
+    }
 
-    // TODO post info
+    // すでに登録されてるかチェック
+    if(!userName || !address || !pass) return 0
 
+    const userInfo = {"users": [...existInfo, {"name": userName, "address": address, "pass": pass}]}
+    localStorage.setItem("userInfo", JSON.stringify(userInfo))
     setIsLogin(true)
+    setLoginName(userName)
     navigate("/")
   }
 
