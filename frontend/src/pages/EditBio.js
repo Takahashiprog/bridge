@@ -26,7 +26,10 @@ const EditBio = () => {
     if (!isLogin) {
       navigate("/login")
     }
-  }, [isLogin, navigate])
+    if (isSchool) {
+      navigate("/")
+    }
+  }, [isLogin, isSchool, navigate])
 
   const handleName = (e) => {
     setNewBio({
@@ -67,13 +70,13 @@ const EditBio = () => {
         <VStack
           padding="40px 80px"
           textAlign="left"
-          borderRadius={25}
+          borderRadius="25px"
           boxShadow="2xl"
-          spacing={30}
+          spacing="30px"
         >
           <Heading size="md">設定を変更</Heading>
           <Box w="400px">
-            <Text fontSize="sm">{isSchool ? "学校名" : "団体名"}</Text>
+            <Text fontSize="sm">団体名</Text>
             <Input
               type="text"
               value={newBio["name"]}
@@ -88,9 +91,9 @@ const EditBio = () => {
             />
           </Box>
           <Spacer />
-          <VStack spacing={5}>
+          <VStack spacing="20px">
             <Button
-              width={150}
+              width="150px"
               borderRadius="full"
               backgroundColor="#B9E3B2"
               boxShadow="md"
@@ -98,7 +101,7 @@ const EditBio = () => {
               onClick={handleSaveBio}
             >変更を保存</Button>
             <Button
-              width={150}
+              width="150px"
               borderRadius="full"
               backgroundColor="#EEEEEE"
               boxShadow="md"
