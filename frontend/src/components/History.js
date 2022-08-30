@@ -1,5 +1,4 @@
-import { Text, SimpleGrid, Box, HStack, Image, VStack } from '@chakra-ui/react'
-import paperImg from "../assets/paper.jpg"
+import { Text, SimpleGrid, Box, HStack, VStack } from '@chakra-ui/react'
 const colList = ["red", "blue", "green", "yellow"]
 
 const History = () => {
