@@ -4,7 +4,7 @@ import presentImg from "../assets/present.png"
 import { useContext, useState } from "react"
 import { AppContext } from "../contexts/AppContext"
 import { useNavigate, Link } from "react-router-dom"
-import { postSchoolLogin } from "../utils/utils"
+// import { postSchoolLogin } from "../utils/utils"
 
 const LoginModal = () => {
   const {
@@ -26,22 +26,22 @@ const LoginModal = () => {
   }
 
   const handleEndLogin = () => {
-    // const userJson = JSON.parse(localStorage.getItem("userInfo"))
-    // let userInfo = []
-    // if (userJson) {
-    //   userInfo = userJson["users"]
-    // }
-    // for (let i = 0; i < userInfo.length; i++) {
-    //   if (userInfo[i]["name"] === userName && userInfo[i]["pass"] === pass) {
-    //     return 0
-    //   }
-    // }
-    
-    console.log(userName, pass)
-    postSchoolLogin(userName, pass)
-    setIsLogin(true)
-    setLoginName(userName)
-    navigate("/")
+    const userJson = JSON.parse(localStorage.getItem("userInfo"))
+    let userInfo = []
+    if (userJson) {
+      userInfo = userJson["users"]
+    }
+    for (let i = 0; i < userInfo.length; i++) {
+      if (userInfo[i]["name"] === userName && userInfo[i]["pass"] === pass) {
+        setIsLogin(true)
+        setLoginName(userName)
+        navigate("/")
+        return 0
+      }
+    }
+
+    // backend
+    // postSchoolLogin(userName, pass)
   }
 
   return (

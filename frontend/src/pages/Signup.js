@@ -1,10 +1,9 @@
 import { useContext, useState } from "react"
-// import { Redirect } from "react-router-dom"
 import { AppContext } from "../contexts/AppContext"
 import { Input, Box, Text, Button, VStack, Center, Spacer } from "@chakra-ui/react"
 import { useNavigate, Link } from "react-router-dom"
 import MyHeader from "../components/MyHeader"
-import { postSchoolInfo } from "../utils/utils"
+// import { postSchoolInfo } from "../utils/utils"
 
 const Signup = () => {
   const {
@@ -15,7 +14,6 @@ const Signup = () => {
 
   const [userName, setUserName] = useState("")
   const [address, setAdress] = useState("")
-  // const [phone, setPhone] = useState("")
   const [pass, setPass] = useState("")
   const navigate = useNavigate()
 
@@ -32,19 +30,21 @@ const Signup = () => {
   }
 
   const handleEndSignup = () => {
-    // const existJson = JSON.parse(localStorage.getItem("userInfo"))
-    // let existInfo = []
-    // if(existJson){
-    //   existInfo = existJson["users"]
-    // }
+    const existJson = JSON.parse(localStorage.getItem("userInfo"))
+    let existInfo = []
+    if(existJson){
+      existInfo = existJson["users"]
+    }
 
     // すでに登録されてるかチェック
-    // if(!userName || !address || !pass) return 0
+    if(!userName || !address || !pass) return 0
 
-    // const userInfo = {"users": [...existInfo, {"name": userName, "address": address, "pass": pass}]}
-    // localStorage.setItem("userInfo", JSON.stringify(userInfo))
+    const userInfo = {"users": [...existInfo, {"name": userName, "address": address, "pass": pass}]}
+    localStorage.setItem("userInfo", JSON.stringify(userInfo))
     
-    postSchoolInfo(userName, pass)
+    // backend
+    // postSchoolInfo(userName, pass)
+
     setIsLogin(true)
     setLoginName(userName)
     navigate("/")
