@@ -33,9 +33,9 @@ const LoginModal = () => {
     // }
     // for (let i = 0; i < userInfo.length; i++) {
     //   if (userInfo[i]["name"] === userName && userInfo[i]["pass"] === pass) {
-      //     return 0
-      //   }
-      // }
+    //     return 0
+    //   }
+    // }
     
     console.log(userName, pass)
     postSchoolLogin(userName, pass)
