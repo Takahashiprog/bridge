@@ -15,9 +15,9 @@ const Home = () => {
   const navigate = useNavigate()
 
   useEffect(() => {
-    // if (!isLogin) {
-    //   navigate("/login")
-    // }
+    if (!isLogin) {
+      navigate("/login")
+    }
   }, [isLogin, navigate])
 
   return (
