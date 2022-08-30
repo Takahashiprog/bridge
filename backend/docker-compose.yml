@@ -1,0 +1,8 @@
+services:
+  apiserver:
+    ports:
+      - "${PORT}:3000"
+    env_file:
+      - .env
+    environment:
+      MYSQL_ADDRESS: db

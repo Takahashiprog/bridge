@@ -13,44 +13,6 @@ const NearClient = () => {
 
   return (
     <>
-      {/* <Box>
-
-        <Text fontSize={24} color="green" mb={20}>
-          相手一覧</Text>
-
-
-        <Box textAlign="left" w="800px">
-
-          <HStack spacing={50}>
-            {clientList.map((val) =>
-              <>
-
-                <Box
-                  backgroundColor="#B9E3B2"
-                  height={300}
-                  width={300}
-                  spacing={5}
-                  boxShadow="md"
-                  _hover={{ boxShadow: "none" }}
-                  borderRadius="full"
-                >
-                  <Center mt="10px">
-                    <Heading size="sm" color="green">{val["name"]}</Heading>
-                  </Center>
-
-                  <Center mt="10px">s */}
-      {/* <Text fontSize="md">所在地：{val["address"]}</Text> */}
-      {/* <Text fontSize="md">{val["explain"]}</Text>
-                  </Center>
-
-                </Box>
-
-              </>
-            )}
-          </HStack>
-        </Box>
-      </Box> */}
-
       <Box w="70%" boxShadow={"20px"} >
         <Text fontSize={24} mb={20} fontWeight='semibold'>相手一覧</Text>
         <HStack spacing="40px">

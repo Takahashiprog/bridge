@@ -17,77 +17,77 @@ const Login = () => {
   return (
     <>
       <MyHeader />
-      <Center height={400}>
+      <Center height="400px">
         <Image
           src={mainImg}
           fit="cover"
-          height={400}
+          height="400px"
           width="full"
           position="absolute"
           zIndex="-1"
           filter="brightness(60%)"
         />
-        <Text color="white" fontSize={20} lineHeight="10" marginBottom={30}>
+        <Text color="white" fontSize="20px" lineHeight="10" marginBottom="30px">
           食品ロスは身近なところから<br />
           E-FOODは学校に焦点を当てたフードバンクプロジェクトです
         </Text>
       </Center>
-      <Box position="absolute" top={380} w="full">
-        <HStack padding="0 20%" justifyContent="space-between" spacing={20}>
+      <Box position="absolute" top="380px" w="full">
+        <HStack padding="0 20%" justifyContent="space-between" spacing="20px">
           <VStack
             textAlign="center"
-            width={320}
-            borderRadius={25}
-            padding={10}
+            width="320px"
+            borderRadius="25px"
+            padding="40px"
             backgroundColor="white"
             boxShadow="2xl"
-            spacing={30}
+            spacing="30px"
             onClick={() => {
               onOpen()
               setIsSchool(true)
             }}
           >
             <Image src={schoolImg} height={"90px"} />
-            <Text fontSize={24}>送る</Text>
+            <Text fontSize="24px">送る</Text>
             <Spacer />
-            <Text fontSize={14}>学校関係者はこちらから</Text>
+            <Text fontSize="14px">学校関係者はこちらから</Text>
           </VStack>
           <VStack
             textAlign="center"
-            width={320}
-            borderRadius={25}
-            padding={10}
+            width="320px"
+            borderRadius="25px"
+            padding="40px"
             backgroundColor="white"
             boxShadow="2xl"
-            spacing={30}
+            spacing="30px"
             onClick={() => {
               onOpen()
               setIsSchool(false)
             }}
           >
             <Image src={presentImg} height={"80px"} margin={"5px"} />
-            <Text fontSize={24}>受け取る</Text>
+            <Text fontSize="24px">受け取る</Text>
             <Spacer />
-            <Text fontSize={14}>受け取り希望団体はこちらから</Text>
+            <Text fontSize="14px">受け取り希望団体はこちらから</Text>
           </VStack>
         </HStack>
       </Box>
-      <Center marginTop={320} marginBottom={100}>
+      <Center marginTop="320px" marginBottom="100px">
         <VStack
           boxShadow="2xl"
           width="80%"
-          padding={20}
-          borderRadius={25}
-          spacing={10}
+          padding="80px"
+          borderRadius="25px"
+          spacing="40px"
         >
-          <Text fontSize={24} color="green">
+          <Text fontSize="24px" color="green">
             フードバンク<span style={{ color: "black", fontSize: "14px" }}>とは</span>
           </Text>
-          <Text fontSize={18} textAlign="left" width="80%">
-            フードバンクとは、食品ロス削減・生活困窮者支援などを目的とする活動です。
-            主に企業や家庭で余ってしまった食品を寄付し、生活困窮者に無償で提供します。
-            「E-FOOD」ではその活動の教育現場での周知を進めるために、実際に学校の授業で
-            フードバンクを実践する補助をします。
+          <Text fontSize="18px" textAlign="left" width="80%">
+            {"フードバンクとは、食品ロス削減・生活困窮者支援などを目的とする活動です。"}
+            {"主に企業や家庭で余ってしまった食品を寄付し、生活困窮者に無償で提供します。"}
+            {"「E-FOOD」ではその活動の教育現場での周知を進めるために、実際に学校の授業で"}
+            {"フードバンクを実践する補助をします。"}
           </Text>
         </VStack>
       </Center>
@@ -95,7 +95,7 @@ const Login = () => {
 
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
-        <ModalContent borderRadius={25}>
+        <ModalContent borderRadius="25px">
           <LoginModal />
         </ModalContent>
       </Modal>
